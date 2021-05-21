@@ -1,14 +1,9 @@
-const api =  {
+const api = {
   unLogin: {
-    get: [
-      '/all',
-      '/login'
-    ],
-    post: [
-      '/login'
-    ],
+    get: ["/all", "/login", "/user/add"],
+    post: ["/login"],
     put: [],
-    delete: [],
+    delete: []
   }
-}
-module.exports = api
+};
+module.exports = api;
