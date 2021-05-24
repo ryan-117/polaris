@@ -1,61 +1,74 @@
 <template>
-<div id="login">
-  <div class="login-container">
-    <el-input placeholder="请输入用户名" v-model="name">
-      <template slot="prepend">用户：</template>
-    </el-input>
-    <el-input placeholder="请输入密码" v-model="password">
-      <template slot="prepend">密码：</template>
-    </el-input>
-    <div class="btns">
-      <button @click="login">登录</button>
-      <button @click="register">注册</button>
+  <div id="login">
+    <div class="login-container">
+      <el-input placeholder="请输入用户名" v-model="name">
+        <template slot="prepend">用户：</template>
+      </el-input>
+      <el-input placeholder="请输入密码" v-model="password">
+        <template slot="prepend">密码：</template>
+      </el-input>
+      <div class="btns">
+        <button @click="login">登录</button>
+        <button @click="register">注册</button>
+      </div>
     </div>
-</div>
-  <ul class="bg-bubbles">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</div>
+    <ul class="bg-bubbles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
-      name: '',
-      password: ''
-    }
+      name: "",
+      password: ""
+    };
   },
   methods: {
-    login () {
+    login() {
       const params = {
         userName: this.name,
         password: this.password
-      }
+      };
       this.$api.login(params).then(res => {
         if (res.code === 1000) {
           for (let key in res.data) {
-            this.$utils.setCookie(key, res.data[key])
+            this.$utils.setCookie(key, res.data[key]);
           }
-          this.$router.push({ 'name': 'home' })
+          this.$router.push({ name: "home" });
         } else {
-          this.$message.error(res.msg)
+          this.$message.error(res.msg);
         }
-      })
+      });
     },
-    register () {
-      this.$message.error('注册功能暂未开放！')
+    register() {
+      const params = {
+        userName: this.name,
+        password: this.password
+      };
+      this.$api.register(params).then(res => {
+        if (res.code === 1000) {
+          for (let key in res.data) {
+            this.$utils.setCookie(key, res.data[key]);
+          }
+          this.$message.error("注册成功，请登录");
+        } else {
+          this.$message.error(res.msg);
+        }
+      });
     }
   }
-}
+};
 </script>
 <style lang="less" scoped>
 #login {
@@ -103,8 +116,8 @@ export default {
       }
     }
   }
-  }
-  .bg-bubbles {
+}
+.bg-bubbles {
   position: absolute;
   top: 0;
   left: 0;
@@ -202,8 +215,8 @@ export default {
       animation-delay: 11s;
     }
   }
-  }
-  @-webkit-keyframes square {
+}
+@-webkit-keyframes square {
   0% {
     -webkit-transform: translateY(0);
     transform: translateY(0);
@@ -212,8 +225,8 @@ export default {
     -webkit-transform: translateY(-700px) rotate(600deg);
     transform: translateY(-700px) rotate(600deg);
   }
-  }
-  @keyframes square {
+}
+@keyframes square {
   0% {
     -webkit-transform: translateY(0);
     transform: translateY(0);

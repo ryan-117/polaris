@@ -1,28 +1,31 @@
-import axios from '@/utils/axios.js'
+import axios from "@/utils/axios.js";
 const api = {
-  login (params) {
-    return axios.post('/blogapi/user/login', params)
+  login(params) {
+    return axios.post("/blogapi/user/login", params);
   },
-  getUserAll () {
-    return axios.get('/blogapi/user/all')
+  getUserAll() {
+    return axios.get("/blogapi/user/all");
   },
-  addUser (userinfo) {
-    return axios.post('/blogapi/user/add', userinfo)
+  addUser(userinfo) {
+    return axios.post("/blogapi/user/add", userinfo);
   },
-  getArticleAll () {
-    return axios.get('/blogapi/article/all')
+  register(userinfo) {
+    return axios.post("/blogapi/user/add", userinfo);
   },
-  getArticle (id) {
-    return axios.get(`/blogapi/article/${id}`)
+  getArticleAll() {
+    return axios.get("/blogapi/article/all");
   },
-  addArticle (article) {
-    return axios.post('/blogapi/article/add', article)
+  getArticle(id) {
+    return axios.get(`/blogapi/article/${id}`);
   },
-  removeArticle (id) {
-    return axios.delete(`/blogapi/article/${id}/delete`)
+  addArticle(article) {
+    return axios.post("/blogapi/article/add", article);
   },
-  editArticle (id, article) {
-    return axios.put(`/blogapi/article/${id}/edit`, article)
+  removeArticle(id) {
+    return axios.delete(`/blogapi/article/${id}/delete`);
+  },
+  editArticle(id, article) {
+    return axios.put(`/blogapi/article/${id}/edit`, article);
   }
-}
-export default api
+};
+export default api;
