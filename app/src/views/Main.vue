@@ -40,15 +40,15 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       userName: ''
-    }
+    };
   },
-  created () {
-    this.userName = this.$utils.getCookie('userName')
+  created() {
+    this.userName = this.$utils.getCookie('userName');
   }
-}
+};
 </script>
 <style>
 * {

@@ -30,8 +30,8 @@
 export default {
   data() {
     return {
-      name: "",
-      password: ""
+      name: '',
+      password: ''
     };
   },
   methods: {
@@ -45,7 +45,7 @@ export default {
           for (let key in res.data) {
             this.$utils.setCookie(key, res.data[key]);
           }
-          this.$router.push({ name: "home" });
+          this.$router.push({ name: 'home' });
         } else {
           this.$message.error(res.msg);
         }
@@ -58,10 +58,7 @@ export default {
       };
       this.$api.register(params).then(res => {
         if (res.code === 1000) {
-          for (let key in res.data) {
-            this.$utils.setCookie(key, res.data[key]);
-          }
-          this.$message.error("注册成功，请登录");
+          this.$message.error('注册成功，请登录');
         } else {
           this.$message.error(res.msg);
         }
