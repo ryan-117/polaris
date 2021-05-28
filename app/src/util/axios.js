@@ -1,12 +1,12 @@
 import axios from 'axios';
-import utils from './utils.js';
+import { getCookie } from './utils.js';
 // axios post请求默认Content-type是 application/json
 axios.defaults.timeout = 10000; // 10s没响应则认为该请求失败
 axios.defaults.withCredentials = true; // 跨域时如果要带上cookie话则需要设置withCrendentials
 // http request 拦截器 所有请求发出前都需要执行以下代码
 axios.interceptors.request.use(
   request => {
-    const token = utils.getCookie('token');
+    const token = getCookie('token');
     request.headers.Authorization = token;
     return request;
   },

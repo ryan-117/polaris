@@ -1,25 +1,24 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router/index.js'
-import store from './store'
-import utils from './utils/utils.js'
-import api from '@/utils/api.js'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import Vue from 'vue';
+import App from './App';
+import router from './router/index';
+import store from './store';
+import api from '@/util/api';
+import { getCookie } from '@/util/utils';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
-Vue.config.productionTip = false
-Vue.use(ElementUI)
-Vue.prototype.$utils = utils
-Vue.prototype.$api = api
+Vue.config.productionTip = false;
+Vue.use(ElementUI);
+Vue.prototype.$api = api;
 
 new Vue({
   router,
   store,
   render: h => h(App),
-  created () {
-    const token = !!this.$utils.getCookie('token')
+  created() {
+    const token = !!getCookie('token');
     if (!token && this.$route.name !== 'login') {
-      this.$router.push({ 'name': 'login' })
+      this.$router.push({ name: 'login' });
     }
   }
-}).$mount('#app')
+}).$mount('#app');

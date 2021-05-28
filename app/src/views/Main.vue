@@ -24,9 +24,8 @@
         <el-dropdown>
           <i class="el-icon-setting" style="margin-right: 15px"></i>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>查看</el-dropdown-item>
-            <el-dropdown-item>新增</el-dropdown-item>
-            <el-dropdown-item>删除</el-dropdown-item>
+            <el-dropdown-item @click="exit">退出登录</el-dropdown-item>
+            <el-dropdown-item>我的资料</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
         <span>{{ userName }}</span>
@@ -39,6 +38,7 @@
   </el-container>
 </template>
 <script>
+import { getCookie, delCookie } from '@/util/utils';
 export default {
   data() {
     return {
@@ -46,7 +46,13 @@ export default {
     };
   },
   created() {
-    this.userName = this.$utils.getCookie('userName');
+    this.userName = getCookie('userName');
+  },
+  methods: {
+    exit() {
+      delCookie('userName');
+      this.$router.replace({ name: 'login' });
+    }
   }
 };
 </script>

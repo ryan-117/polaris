@@ -11,6 +11,7 @@
         <button @click="login">登录</button>
         <button @click="register">注册</button>
       </div>
+      <span>默认账号：1/1</span>
     </div>
     <ul class="bg-bubbles">
       <li></li>
