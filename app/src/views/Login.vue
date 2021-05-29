@@ -28,6 +28,8 @@
   </div>
 </template>
 <script>
+import { setCookie } from '@/util/utils';
+
 export default {
   data() {
     return {
@@ -44,7 +46,7 @@ export default {
       this.$api.login(params).then(res => {
         if (res.code === 1000) {
           for (let key in res.data) {
-            this.$utils.setCookie(key, res.data[key]);
+            setCookie(key, res.data[key]);
           }
           this.$router.push({ name: 'home' });
         } else {

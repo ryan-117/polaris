@@ -24,7 +24,7 @@
         <el-dropdown>
           <i class="el-icon-setting" style="margin-right: 15px"></i>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item @click="exit">退出登录</el-dropdown-item>
+            <el-dropdown-item @click.native="exit">退出登录</el-dropdown-item>
             <el-dropdown-item>我的资料</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -38,7 +38,7 @@
   </el-container>
 </template>
 <script>
-import { getCookie, delCookie } from '@/util/utils';
+import { getCookie, clearAllCookie } from '@/util/utils';
 export default {
   data() {
     return {
@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     exit() {
-      delCookie('userName');
+      clearAllCookie();
       this.$router.replace({ name: 'login' });
     }
   }
