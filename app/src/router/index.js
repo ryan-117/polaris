@@ -1,15 +1,15 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '../views/Home.vue'
-import Main from '../views/Main.vue'
-import Login from '../views/Login.vue'
-import ListUser from '../views/ListUser.vue'
-import CreateUser from '../views/CreateUser.vue'
-import ListArticle from '../views/ListArticle.vue'
-import CreateArticle from '../views/CreateArticle.vue'
-import EditArticle from '../views/EditArticle.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from '../views/Home.vue';
+import Main from '../views/Main.vue';
+import Login from '../views/Login.vue';
+import ListUser from '../views/ListUser.vue';
+import CreateUser from '../views/CreateUser.vue';
+import ListArticle from '../views/ListArticle.vue';
+import CreateArticle from '../views/CreateArticle.vue';
+import EditArticle from '../views/EditArticle.vue';
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
   mode: 'history',
@@ -17,7 +17,6 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'main',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -61,6 +60,6 @@ const router = new Router({
       component: Login
     }
   ]
-})
+});
 
-export default router
+export default router;
