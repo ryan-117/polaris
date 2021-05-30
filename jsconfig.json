@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "checkJs": false,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "app/src/*"
+      ]
+    },
+    "jsx": "preserve"
+  },
+  "include": [
+    "src",
+    "typings"
+  ]
+}
