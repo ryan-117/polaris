@@ -40,6 +40,3 @@ app.listen(3001, () => {
 app.get("/hello", async (req, res) => {
   res.send("Hello blog api!");
 });
-// app.use((request, response) => {
-//     response.status(404).send("Page not found!");
-// });

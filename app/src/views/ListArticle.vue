@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-table :data="articles">
+    <el-table :data="articles" border>
       <el-table-column prop="title" label="标题" width="200">
       </el-table-column>
       <el-table-column prop="body" label="内容" width="200">

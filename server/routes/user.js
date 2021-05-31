@@ -26,12 +26,21 @@ router.get("/all", async (req, res) => {
 });
 // 新增用户
 router.post("/add", async (req, res) => {
-  const user = await User.create(req.body);
-  res.send({
-    code: 1000,
-    data: user,
-    msg: "success"
-  });
+  const hasRegisted = await User.findOne({userName: req.body.userName});
+  if (hasRegisted) {
+    res.send({
+      code: 1001,
+      data: null,
+      msg: `用户${req.body.userName}已被注册，请重新注册`
+    });
+  } else {
+    const user = await User.create(req.body);
+    res.send({
+      code: 1000,
+      data: user,
+      msg: "success"
+    });
+  }
 });
 // 用户登录
 router.post("/login", async (req, res) => {
@@ -41,8 +50,6 @@ router.post("/login", async (req, res) => {
     loginAt: +new Date()
   };
   await User.findOne({userName: req.body.userName}, (err, userInfo) => {
-    console.log("err:", err);
-    console.log("userInfo:", userInfo);
     if (err) {
       return res.json({
         code: 1010,
