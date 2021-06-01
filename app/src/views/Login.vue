@@ -61,7 +61,8 @@ export default {
       };
       this.$api.register(params).then(res => {
         if (res.code === 1000) {
-          this.$message.error('注册成功，请登录');
+          this.$message.success(`用户${this.name}注册成功`);
+          this.login();
         } else {
           this.$message.error(res.msg);
         }
