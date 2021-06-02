@@ -3,11 +3,11 @@ import Router from 'vue-router';
 import Home from '../views/Home.vue';
 import Main from '../views/Main.vue';
 import Login from '../views/Login.vue';
-import ListUser from '../views/ListUser.vue';
-import CreateUser from '../views/CreateUser.vue';
-import ListArticle from '../views/ListArticle.vue';
-import CreateArticle from '../views/CreateArticle.vue';
-import EditArticle from '../views/EditArticle.vue';
+import ListUser from '../views/User/ListUser.vue';
+import CreateUser from '../views/User/CreateUser.vue';
+import ListArticle from '../views/Article/ListArticle.vue';
+import CreateArticle from '../views/Article/CreateArticle.vue';
+import EditArticle from '../views/Article/EditArticle.vue';
 
 Vue.use(Router);
 
