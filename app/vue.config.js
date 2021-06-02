@@ -2,7 +2,7 @@ module.exports = {
   publicPath: process.env.VUE_APP_URL, // 路由基本路径
   outputDir: process.env.outputDir, // 打包输出文件基本路径
   indexPath: 'index.html',
-  lintOnSave: false,
+  lintOnSave: true,
   devServer: {
     proxy: {
       // 配置跨域

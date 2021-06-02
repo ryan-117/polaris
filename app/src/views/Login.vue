@@ -45,7 +45,7 @@ export default {
       };
       this.$api.login(params).then(res => {
         if (res.code === 1000) {
-          for (let key in res.data) {
+          for (const key in res.data) {
             setCookie(key, res.data[key]);
           }
           this.$router.push({ name: 'home' });

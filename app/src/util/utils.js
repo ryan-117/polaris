@@ -20,9 +20,9 @@ export const getCookie = name => {
 
 // 删除cookie
 export const clearAllCookie = () => {
-  const keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+  const keys = document.cookie.match(/[^ =;]+(?=)/g);
   if (keys) {
-    for (let i = keys.length; i--; ) {
+    for (let i = keys.length; i--;) {
       document.cookie =
         keys[i] + '=0;expires=' + new Date(0).toUTCString() + ';path=/';
     }

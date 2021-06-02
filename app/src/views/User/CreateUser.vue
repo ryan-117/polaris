@@ -19,27 +19,27 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       user: {
         userName: '',
         phone: '',
         password: ''
       }
-    }
+    };
   },
   methods: {
-    addUser () {
+    addUser() {
       this.$api.addUser(this.user).then(res => {
         if (res.code === 1000) {
           this.$message({
             message: '用户创建成功',
             type: 'success'
-          })
-          this.$router.push('/user/list')
+          });
+          this.$router.push('/user/list');
         }
-      })
+      });
     }
   }
-}
+};
 </script>

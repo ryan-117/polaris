@@ -1,5 +1,10 @@
 <template>
-  <el-form @submit.native.prevent="saveArticle" ref="form" :model="article" label-width="80px">
+  <el-form
+    @submit.native.prevent="saveArticle"
+    ref="form"
+    :model="article"
+    label-width="80px"
+  >
     <el-form-item label="文章标题">
       <el-input v-model="article.title"></el-input>
     </el-form-item>
@@ -14,23 +19,23 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       article: {}
-    }
+    };
   },
   methods: {
-    saveArticle () {
+    saveArticle() {
       this.$api.addArticle(this.article).then(res => {
         if (res.code === 1000) {
           this.$message({
             message: '文章创建成功',
             type: 'success'
-          })
-          this.$router.push('/articles/index')
+          });
+          this.$router.push('/articles/index');
         }
-      })
+      });
     }
   }
-}
+};
 </script>

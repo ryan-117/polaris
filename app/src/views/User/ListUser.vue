@@ -1,26 +1,38 @@
 <template>
   <div>
     <el-table stripe :data="userInfo">
-      <el-table-column prop="userName" label="用户名" width="200"></el-table-column>
-      <el-table-column prop="phone" label="手机号" width="200"></el-table-column>
-      <el-table-column prop="password" label="密码" width="200"></el-table-column>
+      <el-table-column
+        prop="userName"
+        label="用户名"
+        width="200"
+      ></el-table-column>
+      <el-table-column
+        prop="phone"
+        label="手机号"
+        width="200"
+      ></el-table-column>
+      <el-table-column
+        prop="password"
+        label="密码"
+        width="200"
+      ></el-table-column>
     </el-table>
   </div>
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       userInfo: []
-    }
+    };
   },
-  methods: { },
-  created () {
+  methods: {},
+  created() {
     this.$api.getUserAll().then(res => {
       if (res.code === 1000) {
-        this.userInfo = res.data
+        this.userInfo = res.data;
       }
-    })
+    });
   }
-}
+};
 </script>
