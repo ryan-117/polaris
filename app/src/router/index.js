@@ -3,11 +3,8 @@ import Router from 'vue-router';
 import Home from '../views/Home.vue';
 import Main from '../views/Main.vue';
 import Login from '../views/Login.vue';
-import ListUser from '../views/User/ListUser.vue';
-import CreateUser from '../views/User/CreateUser.vue';
-import ListArticle from '../views/Article/ListArticle.vue';
-import CreateArticle from '../views/Article/CreateArticle.vue';
-import EditArticle from '../views/Article/EditArticle.vue';
+import User from './modules/user';
+import Article from './modules/article';
 
 Vue.use(Router);
 
@@ -27,31 +24,8 @@ const router = new Router({
           name: 'home',
           component: Home
         },
-        {
-          path: '/user/list',
-          name: 'list-user',
-          component: ListUser
-        },
-        {
-          path: '/user/create',
-          name: 'create-user',
-          component: CreateUser
-        },
-        {
-          path: '/articles/index',
-          name: 'list-articles',
-          component: ListArticle
-        },
-        {
-          path: '/articles/create',
-          name: 'create-articles',
-          component: CreateArticle
-        },
-        {
-          path: '/articles/:id/edit',
-          name: 'edit-articles',
-          component: EditArticle
-        }
+        ...User,
+        ...Article
       ]
     },
     {
