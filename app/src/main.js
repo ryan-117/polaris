@@ -2,14 +2,12 @@ import Vue from 'vue';
 import App from './App';
 import router from './router/index';
 import store from './store';
-import api from '@/util/api';
 import { getCookie } from '@/util/utils';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
-Vue.prototype.$api = api;
 
 new Vue({
   router,

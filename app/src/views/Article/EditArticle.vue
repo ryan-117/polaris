@@ -22,6 +22,8 @@
   </el-form>
 </template>
 <script>
+import { editArticle, getArticle } from './api';
+
 export default {
   data() {
     return {
@@ -31,18 +33,16 @@ export default {
   },
   methods: {
     editArticle() {
-      this.$api.editArticle(this.$route.params.id, this.article).then(() => {
-        this.$api.getUserAll().then(res => {
-          this.$message({
-            message: '文章更新成功',
-            type: 'success'
-          });
-          this.$router.push('/articles/index');
+      editArticle(this.$route.params.id, this.article).then(() => {
+        this.$message({
+          message: '文章更新成功',
+          type: 'success'
         });
+        this.$router.push('/articles/index');
       });
     },
     fetch() {
-      this.$api.getArticle(this.$route.params.id).then(res => {
+      getArticle(this.$route.params.id).then(res => {
         if (res.code === 1000) {
           this.article = res.data;
         }

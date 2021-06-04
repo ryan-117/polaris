@@ -29,6 +29,7 @@
 </template>
 <script>
 import { setCookie } from '@/util/utils';
+import { login, register } from '@/views/User/api';
 
 export default {
   data() {
@@ -43,7 +44,7 @@ export default {
         userName: this.name,
         password: this.password
       };
-      this.$api.login(params).then(res => {
+      login(params).then(res => {
         if (res.code === 1000) {
           for (const key in res.data) {
             setCookie(key, res.data[key]);
@@ -59,7 +60,7 @@ export default {
         userName: this.name,
         password: this.password
       };
-      this.$api.register(params).then(res => {
+      register(params).then(res => {
         if (res.code === 1000) {
           this.$message.success(`用户${this.name}注册成功`);
           this.login();

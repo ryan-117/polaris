@@ -18,6 +18,8 @@
   </el-form>
 </template>
 <script>
+import { addArticle } from './api';
+
 export default {
   data() {
     return {
@@ -26,7 +28,7 @@ export default {
   },
   methods: {
     saveArticle() {
-      this.$api.addArticle(this.article).then(res => {
+      addArticle(this.article).then(res => {
         if (res.code === 1000) {
           this.$message({
             message: '文章创建成功',

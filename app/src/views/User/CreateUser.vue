@@ -18,6 +18,8 @@
   </div>
 </template>
 <script>
+import { addUser } from './api';
+
 export default {
   data() {
     return {
@@ -30,7 +32,7 @@ export default {
   },
   methods: {
     addUser() {
-      this.$api.addUser(this.user).then(res => {
+      addUser(this.user).then(res => {
         if (res.code === 1000) {
           this.$message({
             message: '用户创建成功',

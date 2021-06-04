@@ -20,6 +20,8 @@
   </div>
 </template>
 <script>
+import { getUserAll } from './api';
+
 export default {
   data() {
     return {
@@ -28,7 +30,7 @@ export default {
   },
   methods: {},
   created() {
-    this.$api.getUserAll().then(res => {
+    getUserAll().then(res => {
       if (res.code === 1000) {
         this.userInfo = res.data;
       }
