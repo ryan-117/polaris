@@ -31,16 +31,15 @@ export default {
     };
   },
   methods: {
-    addUser() {
-      addUser(this.user).then(res => {
-        if (res.code === 1000) {
-          this.$message({
-            message: '用户创建成功',
-            type: 'success'
-          });
-          this.$router.push('/user/list');
-        }
-      });
+    async addUser() {
+      const res = await addUser(this.user);
+      if (res.code === 1000) {
+        this.$message({
+          message: '用户创建成功',
+          type: 'success'
+        });
+        this.$router.push('/user/list');
+      }
     }
   }
 };

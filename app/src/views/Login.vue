@@ -39,35 +39,33 @@ export default {
     };
   },
   methods: {
-    login() {
+    async login() {
       const params = {
         userName: this.name,
         password: this.password
       };
-      login(params).then(res => {
-        if (res.code === 1000) {
-          for (const key in res.data) {
-            setCookie(key, res.data[key]);
-          }
-          this.$router.push({ name: 'home' });
-        } else {
-          this.$message.error(res.msg);
+      const res = await login(params);
+      if (res.code === 1000) {
+        for (const key in res.data) {
+          setCookie(key, res.data[key]);
         }
-      });
+        this.$router.push({ name: 'home' });
+      } else {
+        this.$message.error(res.msg);
+      }
     },
-    register() {
+    async register() {
       const params = {
         userName: this.name,
         password: this.password
       };
-      register(params).then(res => {
-        if (res.code === 1000) {
-          this.$message.success(`用户${this.name}注册成功`);
-          this.login();
-        } else {
-          this.$message.error(res.msg);
-        }
-      });
+      const res = await register(params);
+      if (res.code === 1000) {
+        this.$message.success(`用户${this.name}注册成功`);
+        this.login();
+      } else {
+        this.$message.error(res.msg);
+      }
     }
   }
 };
