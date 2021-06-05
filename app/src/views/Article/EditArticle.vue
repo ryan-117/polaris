@@ -32,21 +32,21 @@ export default {
     };
   },
   methods: {
-    editArticle() {
-      editArticle(this.$route.params.id, this.article).then(() => {
+    async editArticle() {
+      const res = await editArticle(this.$route.params.id, this.article);
+      if (res) {
         this.$message({
           message: '文章更新成功',
           type: 'success'
         });
         this.$router.push('/articles/index');
-      });
+      }
     },
-    fetch() {
-      getArticle(this.$route.params.id).then(res => {
-        if (res.code === 1000) {
-          this.article = res.data;
-        }
-      });
+    async fetch() {
+      const res = await getArticle(this.$route.params.id);
+      if (res.code === 1000) {
+        this.article = res.data;
+      }
     }
   },
   created() {

@@ -27,16 +27,15 @@ export default {
     };
   },
   methods: {
-    saveArticle() {
-      addArticle(this.article).then(res => {
-        if (res.code === 1000) {
-          this.$message({
-            message: '文章创建成功',
-            type: 'success'
-          });
-          this.$router.push('/articles/index');
-        }
-      });
+    async saveArticle() {
+      const res = await addArticle(this.article);
+      if (res.code === 1000) {
+        this.$message({
+          message: '文章创建成功',
+          type: 'success'
+        });
+        this.$router.push('/articles/index');
+      }
     }
   }
 };
