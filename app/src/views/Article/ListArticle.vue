@@ -27,24 +27,22 @@ export default {
     };
   },
   methods: {
-    fetch() {
-      getArticleAll().then(res => {
-        this.articles = res.data;
-      });
+    async fetch() {
+      const res = await getArticleAll();
+      this.articles = res.data;
     },
     edit(id) {
       this.$router.push(`/articles/${id}/edit`);
     },
-    remove(id) {
-      removeArticle(id).then(res => {
-        if (res.code === 1000) {
-          this.$message({
-            message: '文章删除成功',
-            type: 'success'
-          });
-          this.fetch();
-        }
-      });
+    async remove(id) {
+      const res = await removeArticle(id);
+      if (res.code === 1000) {
+        this.$message({
+          message: '文章删除成功',
+          type: 'success'
+        });
+        this.fetch();
+      }
     }
   },
   created() {
