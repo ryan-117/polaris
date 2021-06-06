@@ -1,4 +1,4 @@
-# app
+# 开发相关：app
 
 ## 安装依赖
 ```
@@ -15,7 +15,7 @@ yarn dev / npm run dev / npm run serve
 yarn build / npm run build
 ```
 
-# server
+# 开发相关：server
 ## 安装依赖
 ```
 yarn / npm install
