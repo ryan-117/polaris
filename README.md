@@ -1,39 +1,28 @@
-# element-admin
+# app
 
-## Project setup
+## 安装依赖
 ```
-yarn
+yarn / npm install
 ```
+## 开发模式
 
-### Compiles and hot-reloads for development
 ```
-yarn serve
+yarn dev / npm run dev / npm run serve
 ```
+## 生产模式
 
-### Compiles and minifies for production
 ```
-yarn build
-```
-
-### Run your tests
-```
-yarn test
+yarn build / npm run build
 ```
 
-### Lints and fixes files
+# server
+## 安装依赖
 ```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-## 前台启动
-```
-yarn serve
+yarn / npm install
 ```
 ## 后台启动
 ```
-nodemon serve
+yarn serve / node index.js
+nodemon index.js  // 后台热更新启动
 ```
 > 端口为localhost:3001
