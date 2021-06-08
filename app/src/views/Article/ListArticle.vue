@@ -19,7 +19,7 @@
         min-width="200"
         show-overflow-tooltip
       >
-        <template scope="scope">
+        <template slot-scope="scope">
           {{ scope.row.createTime | YYYYMMDDHHmm }}
         </template>
       </el-table-column>
