@@ -36,7 +36,3 @@ mongoose.connect("mongodb://localhost:27017/blagapp", {
 app.listen(3001, () => {
   console.log("http://localhost:3001");
 });
-
-app.get("/hello", async (req, res) => {
-  res.send("Hello blog api!");
-});
