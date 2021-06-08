@@ -1,6 +1,6 @@
 <template>
-  <el-container style="height: 100vh; border: 1px solid #eee">
-    <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+  <el-container class="container">
+    <el-aside width="200px" class="left">
       <el-menu router :default-openeds="['1']">
         <el-submenu index="1">
           <template slot="title">
@@ -20,7 +20,7 @@
     </el-aside>
 
     <el-container>
-      <el-header style="text-align: right; font-size: 12px">
+      <el-header class="header">
         <el-dropdown>
           <i class="el-icon-setting" style="margin-right: 15px"></i>
           <el-dropdown-menu slot="dropdown">
@@ -57,16 +57,20 @@ export default {
 };
 </script>
 <style>
-* {
-  margin: 0;
-  padding: 0;
-}
-.el-header {
+.header {
   background-color: #b3c0d1;
   color: #333;
   line-height: 60px;
+  text-align: right;
+  font-size: 12px;
 }
-.el-aside {
+.left {
   color: #333;
+  background-color: rgb(238, 241, 246);
+}
+
+.container {
+  height: 100vh;
+  border: 1px solid #eee;
 }
 </style>
