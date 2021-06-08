@@ -10,7 +10,19 @@
       <el-table-column
         prop="body"
         label="内容"
-        min-width="600"
+        min-width="400"
+        show-overflow-tooltip
+      />
+      <el-table-column
+        prop="createTime"
+        label="创建时间"
+        min-width="200"
+        show-overflow-tooltip
+      />
+      <el-table-column
+        prop="creator"
+        label="创建人"
+        min-width="100"
         show-overflow-tooltip
       />
       <el-table-column fixed="right" label="操作" width="100">
