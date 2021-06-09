@@ -1,7 +1,7 @@
 <template>
   <el-container class="container">
     <el-aside width="200px" class="left">
-      <el-menu router :default-openeds="['1']">
+      <el-menu router :default-openeds="['1', '2']">
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-s-custom"></i>用户管理

@@ -12,3 +12,6 @@ export const addUser = userinfo => {
 export const register = userinfo => {
   return axios.post('/blogapi/user/add', userinfo);
 };
+export const deleteUser = id => {
+  return axios.post(`/blogapi/user/delete/${id}`);
+};

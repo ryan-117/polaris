@@ -42,6 +42,18 @@ router.post("/add", async (req, res) => {
     });
   }
 });
+
+// 删除用户
+router.post("/delete/:id", async (req, res) => {
+  console.log(req.params); // eslint-disable-line
+  await User.findByIdAndDelete(req.params.id);
+  res.send({
+    code: 1000,
+    data: "",
+    msg: "success"
+  });
+});
+
 // 用户登录
 router.post("/login", async (req, res) => {
   // 设置个人信息
