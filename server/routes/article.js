@@ -15,13 +15,13 @@ const Article = mongoose.model(
 // 新增文章
 router.post("/add", async (req, res) => {
   const {title, body} = req.body;
+  const {userName} = req.cookies;
   const createTime = +new Date();
-  console.log(createTime, 66); // eslint-disable-line
   const article = await Article.create({
     title,
     body,
     createTime,
-    creator: "admin"
+    creator: userName
   });
   res.send({
     code: 1000,
