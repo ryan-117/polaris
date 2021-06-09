@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 //添加token认证
 // router.use(retoken);
+
 // 用户管理
 const User = mongoose.model(
   "User",
@@ -15,6 +16,7 @@ const User = mongoose.model(
     password: {type: String}
   })
 );
+
 // 用户列表
 router.get("/all", async (req, res) => {
   const users = await User.find();
@@ -24,6 +26,7 @@ router.get("/all", async (req, res) => {
     msg: "success"
   });
 });
+
 // 新增用户
 router.post("/add", async (req, res) => {
   const hasRegisted = await User.findOne({userName: req.body.userName});
@@ -45,11 +48,30 @@ router.post("/add", async (req, res) => {
 
 // 删除用户
 router.post("/delete/:id", async (req, res) => {
-  console.log(req.params); // eslint-disable-line
   await User.findByIdAndDelete(req.params.id);
   res.send({
     code: 1000,
     data: "",
+    msg: "success"
+  });
+});
+
+// 用户详情
+router.get("/:id", async (req, res) => {
+  const user = await User.findById(req.params.id);
+  res.send({
+    code: 1000,
+    data: user,
+    msg: "success"
+  });
+});
+
+// 编辑用户
+router.post("/edit/:id", async (req, res) => {
+  const user = await User.findByIdAndUpdate(req.params.id, req.body);
+  res.send({
+    code: 1000,
+    data: user,
     msg: "success"
   });
 });

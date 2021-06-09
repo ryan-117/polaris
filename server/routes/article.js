@@ -12,6 +12,7 @@ const Article = mongoose.model(
     creator: {type: String}
   })
 );
+
 // 新增文章
 router.post("/add", async (req, res) => {
   const {title, body} = req.body;
@@ -29,6 +30,7 @@ router.post("/add", async (req, res) => {
     msg: "success"
   });
 });
+
 // 文章列表
 router.get("/all", async (req, res) => {
   const articles = await Article.find();
@@ -37,6 +39,7 @@ router.get("/all", async (req, res) => {
     data: articles
   });
 });
+
 // 文章详情
 router.get("/:id", async (req, res) => {
   const article = await Article.findById(req.params.id);
@@ -46,6 +49,7 @@ router.get("/:id", async (req, res) => {
     msg: "success"
   });
 });
+
 // 删除文章
 router.delete("/:id/delete", async (req, res) => {
   await Article.findByIdAndDelete(req.params.id);
@@ -55,9 +59,9 @@ router.delete("/:id/delete", async (req, res) => {
     msg: "success"
   });
 });
+
 // 修改文章
 router.put("/:id/edit", async (req, res) => {
-  console.log(111);
   const article = await Article.findByIdAndUpdate(req.params.id, req.body);
   res.send({
     code: 1000,

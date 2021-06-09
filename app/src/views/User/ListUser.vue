@@ -4,17 +4,17 @@
       <el-table-column
         prop="userName"
         label="用户名"
-        width="200"
+        width="300"
       ></el-table-column>
       <el-table-column
         prop="phone"
         label="手机号"
-        width="200"
+        width="300"
       ></el-table-column>
       <el-table-column
         prop="password"
         label="密码"
-        width="200"
+        width="300"
       ></el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template slot-scope="scope">
@@ -37,7 +37,9 @@ export default {
     };
   },
   methods: {
-    edit() {},
+    edit(id) {
+      this.$router.push({ name: 'editUser', params: { id } });
+    },
     async remove(id) {
       const res = await deleteUser(id);
       if (res.code === 1000) {
