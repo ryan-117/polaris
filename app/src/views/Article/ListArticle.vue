@@ -10,7 +10,23 @@
       <el-table-column
         prop="body"
         label="内容"
-        min-width="600"
+        min-width="400"
+        show-overflow-tooltip
+      />
+      <el-table-column
+        prop="createTime"
+        label="创建时间"
+        min-width="200"
+        show-overflow-tooltip
+      >
+        <template slot-scope="scope">
+          {{ scope.row.createTime | YYYYMMDDHHmm }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="creator"
+        label="创建人"
+        min-width="100"
         show-overflow-tooltip
       />
       <el-table-column fixed="right" label="操作" width="100">
@@ -26,6 +42,7 @@
 <script>
 import { getArticleAll, removeArticle } from './api';
 import TextButton from '@/component/TextButton';
+import moment from 'moment';
 
 export default {
   components: { TextButton },
@@ -55,6 +72,12 @@ export default {
   },
   created() {
     this.fetch();
+  },
+  filters: {
+    YYYYMMDDHHmm(time) {
+      const t = time || new Date(2021, 1, 1);
+      return moment(t).format('YYYY-MM-DD HH:mm');
+    }
   }
 };
 </script>

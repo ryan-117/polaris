@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+var cookieParser = require("cookie-parser");
 // 路由文件
 const index = require("./routes/index");
 const user = require("./routes/user");
@@ -8,6 +9,7 @@ const app = express();
 // const port = process.env.PORT || 8080
 
 app.use(require("cors")());
+app.use(cookieParser());
 app.use(express.json());
 app.all("*", (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
