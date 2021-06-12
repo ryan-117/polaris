@@ -6,7 +6,6 @@ const index = require("./routes/index");
 const user = require("./routes/user");
 const article = require("./routes/article");
 const app = express();
-// const port = process.env.PORT || 8080
 
 app.use(require("cors")());
 app.use(cookieParser());

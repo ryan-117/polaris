@@ -12,7 +12,6 @@
     "jsx": "preserve"
   },
   "include": [
-    "src",
-    "typings"
+    "app/src"
   ]
 }
