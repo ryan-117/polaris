@@ -6,15 +6,11 @@
   </div>
 </template>
 <script>
-import JlButton from '@/component/jl/Button';
-import JlImg from '@/component/jl/Img';
-import JlText from '@/component/jl/Text';
+import registerComponents from '@/plugins/registerComponents';
 
 export default {
-  components: {
-    JlButton,
-    JlImg,
-    JlText
+  created() {
+    registerComponents.init(); // 初始化jl基本组件，注册为全局组件
   }
 };
 </script>
