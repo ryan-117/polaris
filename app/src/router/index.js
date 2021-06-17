@@ -37,7 +37,7 @@ const router = new Router({
     {
       path: '/workspace/:id',
       name: 'workspace',
-      component: () => import('@/views/Workspace/Index')
+      component: () => import('@/views/Activity/Index')
     }
   ]
 });

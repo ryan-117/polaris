@@ -57,7 +57,8 @@ export default {
       this.activity = res.data || [];
     },
     edit(id) {
-      this.$router.push(`/workspace/${id}`);
+      const url = this.$router.resolve(`/workspace/${id}`).href;
+      window.open(url);
     },
     async remove(id) {
       const res = await removeActivity(id);

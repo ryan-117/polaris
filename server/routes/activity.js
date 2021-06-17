@@ -8,6 +8,7 @@ const Activity = mongoose.model(
   new mongoose.Schema({
     name: {type: String},
     description: {type: String},
+    content: {type: String},
     createTime: {type: Number},
     creator: {type: String}
   })
@@ -15,12 +16,13 @@ const Activity = mongoose.model(
 
 // 新增活动
 router.post("/add", async (req, res) => {
-  const {name, description} = req.body;
+  const {name, description, content} = req.body;
   const {userName} = req.cookies;
   const createTime = +new Date();
   const activity = await Activity.create({
     name,
     description,
+    content,
     createTime,
     creator: userName
   });

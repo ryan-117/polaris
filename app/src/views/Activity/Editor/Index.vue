@@ -1,21 +1,11 @@
 <template>
-  <div class="editor-container">
-    <div class="editor-canvas">
-      <!-- <jl-button />
-    <jl-img />
-    <jl-text /> -->
-      <div class="editing">
-        <component
-          :config="c"
-          :is="c.name"
-          :key="c.cid"
-          v-for="c in templateInfo"
-        ></component>
-      </div>
-      <div class="save">
-        <el-button @click="saveActInfo">保存</el-button>
-      </div>
-    </div>
+  <div class="editing">
+    <component
+      :config="c"
+      :is="c.name"
+      :key="c.cid"
+      v-for="c in templateInfo"
+    />
   </div>
 </template>
 <script>
@@ -24,14 +14,15 @@ import registerComponents from '@/plugins/registerComponents';
 export default {
   data() {
     return {
-      templateInfo: []
+      templateInfo: [
+        { name: 'JlText' },
+        { name: 'JlImg' },
+        { name: 'JlButton' }
+      ]
     };
   },
   created() {
     registerComponents.init(); // 初始化jl基本组件，注册为全局组件
-  },
-  methods: {
-    saveActInfo() {}
   }
 };
 </script>
