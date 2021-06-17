@@ -1,25 +1,17 @@
 <template>
   <div class="editing">
-    <component
-      :config="c"
-      :is="c.name"
-      :key="c.cid"
-      v-for="c in templateInfo"
-    />
+    <component :config="c" :is="c.name" :key="c.cid" v-for="c in actInfo" />
   </div>
 </template>
 <script>
 import registerComponents from '@/plugins/registerComponents';
 
 export default {
-  data() {
-    return {
-      templateInfo: [
-        { name: 'JlText' },
-        { name: 'JlImg' },
-        { name: 'JlButton' }
-      ]
-    };
+  props: {
+    actInfo: {
+      type: Array,
+      default: () => []
+    }
   },
   created() {
     registerComponents.init(); // 初始化jl基本组件，注册为全局组件

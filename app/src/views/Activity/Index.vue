@@ -1,11 +1,9 @@
 <template>
   <el-container>
-    <el-aside>
-      <span slot="label">
-        <i class="iconfont iconlist">组件列表</i>
-      </span>
+    <el-aside class="left">
+      <span>组件列表</span>
       <p class="sort-title">基础组件</p>
-      <el-row :gutter="50">
+      <el-row>
         <el-col :span="10">
           <el-button @click="addComponents({ name: 'JlButton' })" type="primary"
             >按钮</el-button
@@ -23,7 +21,7 @@
         </el-col>
         <el-col :span="10">
           <el-button
-            @click="addComponents({ name: 'JlBackgroundImg' })"
+            @click="addComponents({ name: 'JlBackground' })"
             type="primary"
             >背景</el-button
           >
@@ -31,7 +29,7 @@
       </el-row>
     </el-aside>
     <el-main>
-      <Editor />
+      <Editor :actInfo="actInfo" />
       <div class="save">
         <el-button @click="saveActInfo">保存</el-button>
       </div>
@@ -45,6 +43,11 @@ import Editor from './Editor/Index';
 
 export default {
   components: { Editor },
+  data() {
+    return {
+      actInfo: [{ name: 'JlText' }, { name: 'JlImg' }, { name: 'JlButton' }]
+    };
+  },
   methods: {
     async saveActInfo() {
       const params = {
@@ -55,7 +58,16 @@ export default {
       if (res) {
         this.$message.success('新建活动成功');
       }
+    },
+    addComponents(com) {
+      this.actInfo.push(com);
     }
   }
 };
 </script>
+<style lang="less" scoped>
+.left {
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+</style>
