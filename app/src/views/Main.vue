@@ -1,7 +1,7 @@
 <template>
   <el-container class="container">
     <el-aside width="200px" class="left">
-      <el-menu router :default-openeds="['1', '2']">
+      <el-menu router :default-openeds="['3']">
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-s-custom"></i>用户管理
@@ -15,6 +15,12 @@
           </template>
           <el-menu-item index="/articles/index">文章列表</el-menu-item>
           <el-menu-item index="/articles/create">新建文章</el-menu-item>
+        </el-submenu>
+        <el-submenu index="3">
+          <template slot="title">
+            <i class="el-icon-picture-outline-round"></i>活动模板
+          </template>
+          <el-menu-item index="/activity/list">活动列表</el-menu-item>
         </el-submenu>
       </el-menu>
     </el-aside>

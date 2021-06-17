@@ -4,7 +4,7 @@ import router from './router/index';
 import store from './store';
 import { getCookie } from '@/util/utils';
 import ElementUI from 'element-ui';
-import '@/styles/reset.css';
+import '@/assets/styles/reset.css';
 import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false;
