@@ -1,7 +1,7 @@
 import axios from '@/util/axios';
 
 export const getActivityAll = () => {
-  return axios.get('/activity/activity/all');
+  return axios.get('/blogapi/activity/all');
 };
 export const getActivity = id => {
   return axios.get(`/blogapi/activity/${id}`);

@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 const index = require("./routes/index");
 const user = require("./routes/user");
 const article = require("./routes/article");
+const activity = require("./routes/activity");
 const app = express();
 
 app.use(require("cors")());
@@ -27,6 +28,7 @@ app.all("*", (req, res, next) => {
 app.use("/api", index); // 接口访问路径 /api/*
 app.use("/api/user", user); // 接口访问路径 /api/user/*
 app.use("/api/article", article);
+app.use("/api/activity", activity);
 
 mongoose.connect("mongodb://localhost:27017/blagapp", {
   useNewUrlParser: true,
