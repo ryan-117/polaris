@@ -1,22 +1,18 @@
-import ListArticle from '@/views/Article/ListArticle.vue';
-import CreateArticle from '@/views/Article/CreateArticle.vue';
-import EditArticle from '@/views/Article/EditArticle.vue';
-
 const routes = [
   {
     path: '/articles/index',
     name: 'list-articles',
-    component: ListArticle
+    component: () => import('@/views/Article/ListArticle')
   },
   {
     path: '/articles/create',
     name: 'create-articles',
-    component: CreateArticle
+    component: () => import('@/views/Article/CreateArticle')
   },
   {
     path: '/articles/:id/edit',
     name: 'edit-articles',
-    component: EditArticle
+    component: () => import('@/views/Article/EditArticle')
   }
 ];
 

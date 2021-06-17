@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '../views/Home.vue';
-import Main from '../views/Main.vue';
-import Login from '../views/Login.vue';
+import Home from '../views/Home';
+import Main from '../views/Main';
 import User from './modules/user';
 import Article from './modules/article';
 
@@ -31,7 +30,12 @@ const router = new Router({
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: import('../views/Login')
+    },
+    {
+      path: '/workspace/:id',
+      name: 'workspace',
+      component: () => import('@/views/Workspace/Index')
     }
   ]
 });
