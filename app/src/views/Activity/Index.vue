@@ -40,6 +40,7 @@
 <script>
 import { addActivity } from './api';
 import Editor from './Editor/Index';
+import moment from 'moment';
 
 export default {
   components: { Editor },
@@ -51,8 +52,8 @@ export default {
   methods: {
     async saveActInfo() {
       const params = {
-        name: '新建活动',
-        description: '20210617新建'
+        name: `${moment(+new Date()).format('YYYY-MM-DD')}新建活动`,
+        description: '基础模板新建活动'
       };
       const res = addActivity(params);
       if (res) {
