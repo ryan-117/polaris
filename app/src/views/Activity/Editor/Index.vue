@@ -30,8 +30,5 @@ export default {
   background-color: #fff;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   border: 1px solid #d7dae2;
-  .vdr.active:before {
-    content: none;
-  }
 }
 </style>

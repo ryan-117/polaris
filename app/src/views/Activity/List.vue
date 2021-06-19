@@ -76,11 +76,12 @@ export default {
     async createAct() {
       const params = {
         name: `${moment(+new Date()).format('YYYY-MM-DD')}新建活动`,
-        description: '基础模板新建活动'
+        description: '基础模板新建活动',
+        actContent: JSON.stringify([])
       };
       const res = await addActivity(params);
       if (res) {
-        this.$message('新建活动成功，即将跳转编辑页');
+        this.$message.success('新建活动成功，即将跳转编辑页');
         setTimeout(() => {
           const url = this.$router.resolve(`/workspace/${res.data._id}`).href;
           window.open(url);

@@ -10,8 +10,8 @@ export const addActivity = params => {
   return axios.post('/blogapi/activity/add', params);
 };
 export const removeActivity = id => {
-  return axios.delete(`/blogapi/activity/${id}/delete`);
+  return axios.delete(`/blogapi/activity/delete/${id}`);
 };
 export const editActivity = (id, params) => {
-  return axios.put(`/blogapi/activity/${id}/edit`, params);
+  return axios.put(`/blogapi/activity/edit/${id}`, params);
 };

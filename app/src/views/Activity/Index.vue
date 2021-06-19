@@ -50,31 +50,38 @@
   </el-container>
 </template>
 <script>
-import { addActivity } from './api';
+import { getActivity, editActivity } from './api';
 import Editor from './Editor/Index';
-import moment from 'moment';
 
 export default {
   components: { Editor },
   data() {
     return {
-      actInfo: [{ name: 'JlText' }, { name: 'JlImg' }, { name: 'JlButton' }]
+      actInfo: []
     };
   },
   methods: {
     async saveActInfo() {
       const params = {
-        name: `${moment(+new Date()).format('YYYY-MM-DD')}新建活动`,
-        description: '基础模板新建活动'
+        actContent: JSON.stringify(this.actInfo)
       };
-      const res = addActivity(params);
+      const res = editActivity(this.$route.params.id, params);
       if (res) {
-        this.$message.success('新建活动成功');
+        this.$message.success('活动已保存');
+      }
+    },
+    async getActivity() {
+      const res = await getActivity(this.$route.params.id);
+      if (res) {
+        this.actInfo = JSON.parse(res.data.actContent);
       }
     },
     addComponents(com) {
       this.actInfo.push(com);
     }
+  },
+  created() {
+    this.getActivity();
   }
 };
 </script>

@@ -8,7 +8,7 @@ const Activity = mongoose.model(
   new mongoose.Schema({
     name: {type: String},
     description: {type: String},
-    content: {type: String},
+    actContent: {type: String},
     createTime: {type: Number},
     creator: {type: String}
   })
@@ -16,13 +16,13 @@ const Activity = mongoose.model(
 
 // 新增活动
 router.post("/add", async (req, res) => {
-  const {name, description, content} = req.body;
+  const {name, description, actContent} = req.body;
   const {userName} = req.cookies;
   const createTime = +new Date();
   const activity = await Activity.create({
     name,
     description,
-    content,
+    actContent,
     createTime,
     creator: userName
   });
@@ -53,7 +53,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // 删除活动
-router.delete("/:id/delete", async (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
   await Activity.findByIdAndDelete(req.params.id);
   res.send({
     code: 1000,
@@ -63,7 +63,7 @@ router.delete("/:id/delete", async (req, res) => {
 });
 
 // 修改活动
-router.put("/:id/edit", async (req, res) => {
+router.put("/edit/:id", async (req, res) => {
   const activity = await Activity.findByIdAndUpdate(req.params.id, req.body);
   res.send({
     code: 1000,
