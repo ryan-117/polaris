@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="operate">
+      <el-button type="primary" @click="createAct">新建活动</el-button>
+    </div>
     <el-table :data="activity" border stripe highlight-current-row fit>
       <el-table-column
         prop="name"
@@ -40,7 +43,7 @@
 </template>
 
 <script>
-import { getActivityAll, removeActivity } from './api';
+import { getActivityAll, removeActivity, addActivity } from './api';
 import TextButton from '@/component/TextButton';
 import moment from 'moment';
 
@@ -69,6 +72,20 @@ export default {
         });
         this.fetch();
       }
+    },
+    async createAct() {
+      const params = {
+        name: `${moment(+new Date()).format('YYYY-MM-DD')}新建活动`,
+        description: '基础模板新建活动'
+      };
+      const res = await addActivity(params);
+      if (res) {
+        this.$message('新建活动成功，即将跳转编辑页');
+        setTimeout(() => {
+          const url = this.$router.resolve(`/workspace/${res.data._id}`).href;
+          window.open(url);
+        }, 2000);
+      }
     }
   },
   created() {
@@ -82,3 +99,9 @@ export default {
   }
 };
 </script>
+<style lang="less" scoped>
+.operate {
+  text-align: right;
+  margin-bottom: 16px;
+}
+</style>
