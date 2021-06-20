@@ -11,34 +11,37 @@
     </el-header>
     <el-container>
       <el-aside class="left">
-        <span>组件列表</span>
-        <p class="sort-title">基础组件</p>
-        <el-row>
-          <el-col :span="10">
-            <el-button
-              @click="addComponents({ name: 'JlButton' })"
-              type="primary"
-              >按钮</el-button
-            >
-          </el-col>
-          <el-col :span="10">
-            <el-button @click="addComponents({ name: 'JlImg' })" type="primary"
-              >图片</el-button
-            >
-          </el-col>
-          <el-col :span="10">
-            <el-button @click="addComponents({ name: 'JlText' })" type="primary"
-              >文字</el-button
-            >
-          </el-col>
-          <el-col :span="10">
-            <el-button
-              @click="addComponents({ name: 'JlBackground' })"
-              type="primary"
-              >背景</el-button
-            >
-          </el-col>
-        </el-row>
+        <el-tabs tab-position="left" type="border-card" style="height: 300px;">
+          <el-tab-pane label="基础组件">
+            <div class="tab-content">
+              <el-button
+                @click="addComponents({ name: 'JlButton' })"
+                icon="el-icon-circle-plus-outline"
+              >
+                按钮
+              </el-button>
+              <el-button
+                @click="addComponents({ name: 'JlImg' })"
+                icon="el-icon-circle-plus-outline"
+              >
+                图片
+              </el-button>
+              <el-button
+                @click="addComponents({ name: 'JlText' })"
+                icon="el-icon-circle-plus-outline"
+              >
+                文字
+              </el-button>
+              <el-button
+                @click="addComponents({ name: 'JlBackground' })"
+                icon="el-icon-circle-plus-outline"
+              >
+                背景
+              </el-button>
+            </div>
+          </el-tab-pane>
+          <el-tab-pane label="页面属性">页面属性</el-tab-pane>
+        </el-tabs>
       </el-aside>
       <el-main>
         <Editor :actInfo="actInfo" />
@@ -95,11 +98,19 @@ export default {
 
 .left {
   border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+  height: calc(100vh - 60px);
+
+  .tab-content {
+    .el-button {
+      margin-bottom: 8px;
+      margin-left: 0;
+    }
+  }
 }
 
 .right {
   border-left: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  height: calc(100vh - 60px);
 }
 </style>
