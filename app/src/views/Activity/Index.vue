@@ -44,7 +44,7 @@
         </el-tabs>
       </el-aside>
       <el-main>
-        <Editor :actInfo="actInfo" />
+        <Editor :actInfo="pageComponents" />
       </el-main>
       <el-aside class="right">
         <span>属性配置</span>
@@ -53,20 +53,23 @@
   </el-container>
 </template>
 <script>
+import { mapMutations, mapGetters } from 'vuex';
 import { getActivity, editActivity } from './api';
 import Editor from './Editor/Index';
 
 export default {
   components: { Editor },
   data() {
-    return {
-      actInfo: []
-    };
+    return {};
+  },
+  computed: {
+    ...mapGetters(['pageComponents'])
   },
   methods: {
+    ...mapMutations(['addComponents', 'initPage']),
     async saveActInfo() {
       const params = {
-        actContent: JSON.stringify(this.actInfo)
+        actContent: JSON.stringify(this.pageComponents)
       };
       const res = editActivity(this.$route.params.id, params);
       if (res) {
@@ -76,11 +79,8 @@ export default {
     async getActivity() {
       const res = await getActivity(this.$route.params.id);
       if (res) {
-        this.actInfo = JSON.parse(res.data.actContent);
+        this.initPage(JSON.parse(res.data.actContent));
       }
-    },
-    addComponents(com) {
-      this.actInfo.push(com);
     }
   },
   created() {
