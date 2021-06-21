@@ -6,14 +6,14 @@ module.exports = {
   devServer: {
     proxy: {
       // 配置跨域
-      '/blogapi': {
-        // 代理接口前缀为/blogapi的请求
+      '/jl-api': {
+        // 代理接口前缀为/jl-api的请求
         target: 'http://localhost:3001/api/', // 需要代理到的目标地址
         changeOrigin: true, // 是否跨域
         pathRewrite: {
-          '^/blogapi': '' // 重写路径
+          '^/jl-api': '' // 重写路径
         }
       }
     }
   }
-}
+};

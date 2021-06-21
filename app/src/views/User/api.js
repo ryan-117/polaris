@@ -1,28 +1,28 @@
 import axios from '@/util/axios';
 
 export const login = params => {
-  return axios.post('/blogapi/user/login', params);
+  return axios.post('/jl-api/user/login', params);
 };
 export const getUserAll = () => {
-  return axios.get('/blogapi/user/all');
+  return axios.get('/jl-api/user/all');
 };
-export const addUser = userinfo => {
-  return axios.post('/blogapi/user/add', userinfo);
+export const addUser = params => {
+  return axios.post('/jl-api/user/add', params);
 };
-export const register = userinfo => {
-  return axios.post('/blogapi/user/add', userinfo);
+export const register = params => {
+  return axios.post('/jl-api/user/add', params);
 };
 export const editUser = params => {
   const { userName, phone, password } = params;
-  return axios.post(`/blogapi/user/edit/${params.id}`, {
+  return axios.post(`/jl-api/user/edit/${params.id}`, {
     userName,
     phone,
     password
   });
 };
 export const getUser = id => {
-  return axios.get(`/blogapi/user/${id}`);
+  return axios.get(`/jl-api/user/${id}`);
 };
 export const deleteUser = id => {
-  return axios.post(`/blogapi/user/delete/${id}`);
+  return axios.post(`/jl-api/user/delete/${id}`);
 };
