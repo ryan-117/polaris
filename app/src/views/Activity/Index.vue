@@ -40,11 +40,23 @@
               </el-button>
             </div>
           </el-tab-pane>
-          <el-tab-pane label="页面属性">页面属性</el-tab-pane>
+          <el-tab-pane label="页面属性">
+            <el-form :model="actInfo">
+              <el-form-item label="活动名称">
+                <el-input v-model="actInfo.name"></el-input>
+              </el-form-item>
+              <el-form-item label="活动描述">
+                <el-input
+                  v-model="actInfo.description"
+                  type="textarea"
+                ></el-input>
+              </el-form-item>
+            </el-form>
+          </el-tab-pane>
         </el-tabs>
       </el-aside>
       <el-main>
-        <Editor :actInfo="pageComponents" />
+        <Editor :pageComponents="pageComponents" />
       </el-main>
       <el-aside class="right">
         <span>属性配置</span>
@@ -60,7 +72,12 @@ import Editor from './Editor/Index';
 export default {
   components: { Editor },
   data() {
-    return {};
+    return {
+      actInfo: {
+        name: '',
+        description: ''
+      }
+    };
   },
   computed: {
     ...mapGetters(['pageComponents'])
@@ -68,7 +85,10 @@ export default {
   methods: {
     ...mapMutations(['addComponents', 'initPage']),
     async saveActInfo() {
+      const { name, description } = this.actInfo;
       const params = {
+        name,
+        description,
         actContent: JSON.stringify(this.pageComponents)
       };
       const res = editActivity(this.$route.params.id, params);
@@ -79,7 +99,10 @@ export default {
     async getActivity() {
       const res = await getActivity(this.$route.params.id);
       if (res) {
-        this.initPage(JSON.parse(res.data.actContent));
+        const { name, description, actContent } = res.data;
+        this.initPage(JSON.parse(actContent));
+        this.actInfo.name = name;
+        this.actInfo.description = description;
       }
     }
   },

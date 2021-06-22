@@ -1,6 +1,11 @@
 <template>
   <div class="editing">
-    <component :config="c" :is="c.name" :key="c.cid" v-for="c in actInfo" />
+    <component
+      :config="c"
+      :is="c.name"
+      :key="c.cid"
+      v-for="c in pageComponents"
+    />
   </div>
 </template>
 <script>
@@ -8,7 +13,7 @@ import registerComponents from '@/plugins/registerComponents';
 
 export default {
   props: {
-    actInfo: {
+    pageComponents: {
       type: Array,
       default: () => []
     }
