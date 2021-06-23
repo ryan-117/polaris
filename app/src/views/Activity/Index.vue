@@ -93,7 +93,7 @@ export default {
       };
       const res = editActivity(this.$route.params.id, params);
       if (res) {
-        this.$message.success('活动已保存');
+        this.$message.success('保存成功');
       }
     },
     async getActivity() {
