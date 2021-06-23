@@ -1,9 +1,6 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
-const ALLOW_IPS = [
-  '127.0.0.1',
-  '::1'
-];
+const ALLOW_IPS = ['127.0.0.1', '::1'];
 
 // router.use((req, res, next) => {
 //   // req.ip请求来源ip
@@ -15,4 +12,4 @@ const ALLOW_IPS = [
 //   }
 // })
 
-module.exports = router
+module.exports = router;
