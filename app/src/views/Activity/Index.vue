@@ -60,6 +60,7 @@
       </el-main>
       <el-aside class="right">
         <span>属性配置</span>
+        <component :is="selectedComponent.editor"></component>
       </el-aside>
     </el-container>
   </el-container>
@@ -80,7 +81,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['pageComponents'])
+    ...mapGetters(['pageComponents', 'selectedComponent'])
   },
   methods: {
     ...mapMutations(['addComponents', 'initPage']),
@@ -135,5 +136,6 @@ export default {
 .right {
   border-left: 1px solid #ccc;
   height: calc(100vh - 60px);
+  padding: 15px;
 }
 </style>

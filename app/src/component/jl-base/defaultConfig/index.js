@@ -13,7 +13,7 @@ class JlButton {
     this.name = 'JlButton';
     this.cid = generateCid();
     this.text = '默认按钮';
-    this.editor = 'JlButtonEditor';
+    this.editor = 'ButtonEditor';
     this.style = {
       width: 100,
       height: 40,
@@ -32,7 +32,7 @@ class JlImg {
   constructor() {
     this.name = 'JlImg';
     this.cid = generateCid();
-    this.editor = 'JlImgEditor';
+    this.editor = 'ImgEditor';
     this.isProportionalScale = true;
     this.src = 'http://xwxt.wostore.cn/upload/2019/06/20/1560999405954.png';
     this.style = {
@@ -53,7 +53,7 @@ class JlText {
   constructor() {
     this.name = 'JlText';
     this.cid = generateCid();
-    this.editor = 'JlTextEditor';
+    this.editor = 'TextEditor';
     this.text = '这是一段文字';
     this.style = {
       width: 200,
@@ -71,6 +71,7 @@ class JlText {
 class JlBackground {
   constructor() {
     this.name = 'JlBackground';
+    this.editor = 'BackgroundEditor';
     this.cid = generateCid();
     this.src =
       'http://h5test.wostore.cn/atp_resource/upload//atpweb/2020/04/27/5428ca25d261e29f45d6508cbc3765e1.png';

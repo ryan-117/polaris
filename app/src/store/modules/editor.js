@@ -1,11 +1,13 @@
 import allConfigs from '@/component/jl-base/defaultConfig/index';
 
 const state = {
-  pageComponents: []
+  pageComponents: [],
+  selectedComponent: {}
 };
 
 const getters = {
-  pageComponents: s => s.pageComponents
+  pageComponents: s => s.pageComponents,
+  selectedComponent: s => s.selectedComponent
 };
 
 const mutations = {
@@ -15,6 +17,9 @@ const mutations = {
   },
   initPage(s, reqData) {
     s.pageComponents = reqData;
+  },
+  selectComponent(s, c) {
+    s.selectedComponent = c;
   }
 };
 

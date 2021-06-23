@@ -5,11 +5,13 @@
       :is="c.name"
       :key="c.cid"
       v-for="c in pageComponents"
+      @click.native="selectComponent(c)"
     />
   </div>
 </template>
 <script>
 import registerComponents from '@/plugins/registerComponents';
+import { mapMutations } from 'vuex';
 
 export default {
   props: {
@@ -20,6 +22,10 @@ export default {
   },
   created() {
     registerComponents.init(); // 初始化jl基本组件，注册为全局组件
+    registerComponents.initEditor(); // 将jl基本组件对应的编辑器，注册为全局组件
+  },
+  methods: {
+    ...mapMutations(['selectComponent'])
   }
 };
 </script>

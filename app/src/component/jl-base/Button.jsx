@@ -4,7 +4,7 @@ export default {
     config: { type: Object, default: () => {} }
   },
   render() {
-    const { style } = this.config;
+    const { style, text } = this.config;
     const { width, height, borderRadius, borderWidth } = style;
     const resultStyle = {
       ...style,
@@ -13,6 +13,6 @@ export default {
       borderRadius: `${borderRadius}px`,
       borderWidth: `${borderWidth}px`
     };
-    return <button style={resultStyle}>按钮</button>;
+    return <button style={resultStyle}>{text}</button>;
   }
 };
