@@ -12,7 +12,7 @@ class JlButton {
   constructor() {
     this.name = 'JlButton';
     this.cid = generateCid();
-    this.text = '按钮';
+    this.text = '默认按钮';
     this.editor = 'JlButtonEditor';
     this.style = {
       width: 100,
