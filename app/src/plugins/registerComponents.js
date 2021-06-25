@@ -5,10 +5,18 @@ import JlText from '@/component/jl-base/Text';
 import JlBackground from '@/component/jl-base/Background';
 
 import ButtonEditor from '@/component/jl-editor/ButtonEditor';
+import ImgEditor from '@/component/jl-editor/ImgEditor';
+import TextEditor from '@/component/jl-editor/TextEditor';
+import BackgroundEditor from '@/component/jl-editor/BackgroundEditor';
 
 const baseComponentsList = [JlButton, JlImg, JlText, JlBackground];
 
-const baseComponentsEditorList = [ButtonEditor];
+const baseComponentsEditorList = [
+  ButtonEditor,
+  ImgEditor,
+  TextEditor,
+  BackgroundEditor
+];
 
 export default {
   init() {
