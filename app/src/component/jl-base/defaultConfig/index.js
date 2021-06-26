@@ -8,6 +8,7 @@ const generateCid = () =>
     .toString(36)
     .substring(2, 15);
 
+// 各组件默认属性配置，后续需要改为class extens形式
 class JlButton {
   constructor() {
     this.name = 'JlButton';
