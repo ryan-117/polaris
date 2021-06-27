@@ -1,7 +1,6 @@
 <template>
   <div>
-    <span>button 编辑器</span>
-    <el-form :model="config">
+    <el-form :model="config" size="small" :inline="true">
       <el-form-item label="显示文字">
         <el-input v-model="config.text"></el-input>
       </el-form-item>
@@ -24,10 +23,13 @@
         ></el-input-number>
       </el-form-item>
       <el-form-item label="边框圆角">
-        <el-input-number
+        <el-slider
+          style="width: 140px;"
           v-model="config.style.borderRadius"
-          controls-position="right"
-        ></el-input-number>
+          :min="0"
+          :max="config.style.width"
+          show-tooltip
+        ></el-slider>
       </el-form-item>
     </el-form>
   </div>

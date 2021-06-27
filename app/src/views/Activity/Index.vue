@@ -59,8 +59,14 @@
         <Editor :pageComponents="pageComponents" />
       </el-main>
       <el-aside class="right">
-        <span>属性配置</span>
-        <component :is="selectedComponent.editor"></component>
+        <el-tabs v-model="rightActivetab" type="border-card">
+          <el-tab-pane label="属性配置" name="propertyConfig">
+            <component :is="selectedComponent.editor"></component>
+          </el-tab-pane>
+          <el-tab-pane label="分享配置" name="shareConfig">
+            分享配置
+          </el-tab-pane>
+        </el-tabs>
       </el-aside>
     </el-container>
   </el-container>
@@ -77,7 +83,8 @@ export default {
       actInfo: {
         name: '',
         description: ''
-      }
+      },
+      rightActivetab: 'propertyConfig'
     };
   },
   computed: {

@@ -30,7 +30,8 @@ app.use('/api/activity', activity);
 mongoose.connect('mongodb://localhost:27017/blagapp', {
   useNewUrlParser: true,
   useFindAndModify: true,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useUnifiedTopology: true
 });
 
 app.listen(3001, () => {
