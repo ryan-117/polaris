@@ -10,6 +10,12 @@
           show-alpha
         ></el-color-picker>
       </el-form-item>
+      <el-form-item label="字体大小">
+        <el-input-number
+          v-model="config.style.fontSize"
+          controls-position="right"
+        ></el-input-number>
+      </el-form-item>
     </el-form>
   </div>
 </template>
