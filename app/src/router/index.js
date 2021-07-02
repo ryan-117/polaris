@@ -3,7 +3,6 @@ import Router from 'vue-router';
 import Home from '@/views/Home';
 import Main from '@/views/Main';
 import User from './modules/user';
-import Article from './modules/article';
 import Activity from './modules/activity';
 
 Vue.use(Router);
@@ -25,7 +24,6 @@ const router = new Router({
           component: Home
         },
         ...User,
-        ...Article,
         ...Activity
       ]
     },
