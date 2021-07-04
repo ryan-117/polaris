@@ -4,7 +4,7 @@ export default {
     config: { type: Object, default: () => {} }
   },
   render() {
-    const { style } = this.config;
+    const { style, src } = this.config;
     const { borderRadius, borderWidth } = style;
     const resultStyle = {
       ...style,
@@ -12,12 +12,7 @@ export default {
       borderWidth: `${borderWidth}px`
     };
     return (
-      <img
-        style={resultStyle}
-        src="https://gw.alipayobjects.com/mdn/prod_resource/afts/img/A*bmaOTohwV3YAAAAAAAAAAAAAARQnAQ"
-        alt="jl-img"
-        style={resultStyle}
-      />
+      <img style={resultStyle} src={src} alt="jl-img" style={resultStyle} />
     );
   }
 };

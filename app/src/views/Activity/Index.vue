@@ -32,12 +32,6 @@
               >
                 文字
               </el-button>
-              <el-button
-                @click="addComponents({ name: 'JlBackground' })"
-                icon="el-icon-circle-plus-outline"
-              >
-                背景
-              </el-button>
             </div>
           </el-tab-pane>
           <el-tab-pane label="页面属性">

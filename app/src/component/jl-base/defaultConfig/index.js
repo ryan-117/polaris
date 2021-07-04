@@ -35,7 +35,8 @@ class JlImg {
     this.cid = generateCid();
     this.editor = 'ImgEditor';
     this.isProportionalScale = true;
-    this.src = 'http://xwxt.wostore.cn/upload/2019/06/20/1560999405954.png';
+    this.src =
+      'https://gw.alipayobjects.com/mdn/prod_resource/afts/img/A*bmaOTohwV3YAAAAAAAAAAAAAARQnAQ';
     this.style = {
       width: 200,
       height: 100,
@@ -69,29 +70,9 @@ class JlText {
     };
   }
 }
-class JlBackground {
-  constructor() {
-    this.name = 'JlBackground';
-    this.editor = 'BackgroundEditor';
-    this.cid = generateCid();
-    this.src =
-      'http://h5test.wostore.cn/atp_resource/upload//atpweb/2020/04/27/5428ca25d261e29f45d6508cbc3765e1.png';
-    this.style = {
-      width: 375,
-      top: 0,
-      left: 0,
-      borderRadius: 0,
-      borderWidth: 0,
-      backgroundColor: '#ffffff',
-      borderColor: '#cccccc',
-      borderStyle: 'solid',
-      opacity: 1
-    };
-  }
-}
+
 export default {
   JlButton,
   JlImg,
-  JlText,
-  JlBackground
+  JlText
 };
