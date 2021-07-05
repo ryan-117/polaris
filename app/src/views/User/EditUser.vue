@@ -14,6 +14,14 @@
     <el-form-item label="密码">
       <el-input style="margin-bottom:20px" v-model="user.password"></el-input>
     </el-form-item>
+    <el-form-item label="头像">
+      <el-avatar :size="60" :src="currentAvator">
+        <img
+          src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png"
+        />
+      </el-avatar>
+      <ImgSelector />
+    </el-form-item>
     <el-form-item>
       <el-button type="primary" native-type="submit">保存</el-button>
       <el-button @click="$router.go(-1)">取消</el-button>
@@ -22,9 +30,11 @@
 </template>
 <script>
 import { editUser, getUser } from './api';
+import ImgSelector from './components/ImgSelector';
 
 export default {
   name: 'EditUser',
+  components: { ImgSelector },
   data() {
     return {
       user: {
@@ -32,7 +42,8 @@ export default {
         phone: '',
         password: ''
       },
-      disabled: false
+      disabled: false,
+      currentAvator: ''
     };
   },
   methods: {

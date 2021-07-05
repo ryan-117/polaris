@@ -1,24 +1,17 @@
 <template>
   <el-container class="container">
     <el-aside width="200px" class="left">
-      <el-menu router :default-openeds="['3']">
+      <el-menu router :default-openeds="['2']">
         <el-submenu index="1">
           <template slot="title">
-            <i class="el-icon-s-custom"></i>用户管理
+            <em class="el-icon-s-custom" />用户管理
           </template>
           <el-menu-item index="/user/list">用户列表</el-menu-item>
           <el-menu-item index="/user/create">新增用户</el-menu-item>
         </el-submenu>
         <el-submenu index="2">
           <template slot="title">
-            <i class="el-icon-message"></i>内容管理
-          </template>
-          <el-menu-item index="/articles/index">文章列表</el-menu-item>
-          <el-menu-item index="/articles/create">新建文章</el-menu-item>
-        </el-submenu>
-        <el-submenu index="3">
-          <template slot="title">
-            <i class="el-icon-picture-outline-round"></i>活动模板
+            <em class="el-icon-picture-outline-round" />活动模板
           </template>
           <el-menu-item index="/activity/list">活动列表</el-menu-item>
         </el-submenu>
@@ -28,7 +21,7 @@
     <el-container>
       <el-header class="header">
         <el-dropdown>
-          <i class="el-icon-setting" style="margin-right: 15px"></i>
+          <em class="el-icon-setting edit" />
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="exit">退出登录</el-dropdown-item>
             <el-dropdown-item>我的资料</el-dropdown-item>
@@ -78,5 +71,10 @@ export default {
 .container {
   height: 100vh;
   border: 1px solid #eee;
+}
+
+.edit {
+  margin-right: 15px;
+  cursor: pointer;
 }
 </style>
