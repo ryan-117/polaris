@@ -1,5 +1,5 @@
 {
-  "name": "blog",
+  "name": "polaris",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -7,6 +7,6 @@
     "dev": "nodemon server/index.js & cd app && yarn dev"
   },
   "keywords": [],
-  "author": "",
+  "author": "117",
   "license": "ISC"
 }
