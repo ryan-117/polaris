@@ -29,7 +29,6 @@
         </el-dropdown>
         <span>{{ userName }}</span>
       </el-header>
-
       <el-main>
         <router-view></router-view>
       </el-main>

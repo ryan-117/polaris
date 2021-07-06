@@ -40,7 +40,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .img-selector {
-  width: 700px;
+  width: 600px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

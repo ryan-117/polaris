@@ -20,7 +20,14 @@
           src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png"
         />
       </el-avatar>
-      <ImgSelector @change="changeImg" />
+      <div class="edit-avatar">
+        <el-button type="text" @click="isShowAvatarSelector = true">
+          修改头像
+        </el-button>
+      </div>
+      <el-card shadow="always" v-show="isShowAvatarSelector">
+        <ImgSelector @change="changeImg" />
+      </el-card>
     </el-form-item>
     <el-form-item>
       <el-button type="primary" native-type="submit">保存</el-button>
@@ -43,7 +50,8 @@ export default {
         password: '',
         avatar: ''
       },
-      disabled: false
+      disabled: false,
+      isShowAvatarSelector: false
     };
   },
   methods: {
@@ -81,3 +89,12 @@ export default {
   }
 };
 </script>
+<style lang="less" scoped>
+.edit-avatar {
+  display: inline-flex;
+  align-items: center;
+  height: 60px;
+  vertical-align: top;
+  margin-left: 16px;
+}
+</style>
