@@ -13,11 +13,12 @@ export const register = params => {
   return axios.post('/jl-api/user/add', params);
 };
 export const editUser = params => {
-  const { userName, phone, password } = params;
+  const { userName, phone, password, avatar } = params;
   return axios.post(`/jl-api/user/edit/${params.id}`, {
     userName,
     phone,
-    password
+    password,
+    avatar
   });
 };
 export const getUser = id => {

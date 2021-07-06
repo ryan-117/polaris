@@ -15,12 +15,12 @@
       <el-input style="margin-bottom:20px" v-model="user.password"></el-input>
     </el-form-item>
     <el-form-item label="头像">
-      <el-avatar :size="60" :src="currentAvator">
+      <el-avatar :size="60" fit="contain" :src="user.avatar">
         <img
           src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png"
         />
       </el-avatar>
-      <ImgSelector />
+      <ImgSelector @change="changeImg" />
     </el-form-item>
     <el-form-item>
       <el-button type="primary" native-type="submit">保存</el-button>
@@ -40,20 +40,21 @@ export default {
       user: {
         userName: '',
         phone: '',
-        password: ''
+        password: '',
+        avatar: ''
       },
-      disabled: false,
-      currentAvator: ''
+      disabled: false
     };
   },
   methods: {
     async editUser() {
-      const { userName, phone, password } = this.user;
+      const { userName, phone, password, avatar } = this.user;
       const params = {
         id: this.$route.params.id,
         userName,
         phone,
-        password
+        password,
+        avatar
       };
       const res = await editUser(params);
       if (res) {
@@ -67,9 +68,12 @@ export default {
     async fetch() {
       const res = await getUser(this.$route.params.id);
       if (res.code === 1000) {
-        const { userName, phone, password } = res.data;
-        this.user = { ...this.user, userName, phone, password };
+        const { userName, phone, password, avatar } = res.data;
+        this.user = { ...this.user, userName, phone, password, avatar };
       }
+    },
+    changeImg(src) {
+      this.user.avatar = src;
     }
   },
   created() {
