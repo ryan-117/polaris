@@ -29,7 +29,7 @@
 </template>
 <script>
 import { setCookie } from '@/util/utils';
-import { login, register } from '@/views/User/api';
+import { login, register } from '@/service/api/user';
 
 export default {
   data() {

@@ -43,7 +43,11 @@
 </template>
 
 <script>
-import { getActivityAll, removeActivity, addActivity } from './api';
+import {
+  getActivityAll,
+  removeActivity,
+  addActivity
+} from '@/service/api/activity';
 import TextButton from '@/component/TextButton';
 import moment from 'moment';
 

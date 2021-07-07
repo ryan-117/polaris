@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-import { addUser } from './api';
+import { addUser } from '@/service/api/user';
 
 export default {
   data() {

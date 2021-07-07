@@ -67,7 +67,7 @@
 </template>
 <script>
 import { mapMutations, mapGetters } from 'vuex';
-import { getActivity, editActivity } from './api';
+import { getActivity, editActivity } from '@/service/api/activity';
 import Editor from './Editor/Index';
 
 export default {

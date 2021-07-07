@@ -27,7 +27,7 @@
 </template>
 <script>
 import TextButton from '@/component/TextButton';
-import { getUserAll, deleteUser } from './api';
+import { getUserAll, deleteUser } from '@/service/api/user';
 
 export default {
   components: { TextButton },

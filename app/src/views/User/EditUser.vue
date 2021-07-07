@@ -36,7 +36,7 @@
   </el-form>
 </template>
 <script>
-import { editUser, getUser } from './api';
+import { editUser, getUser } from '@/service/api/user';
 import ImgSelector from './components/ImgSelector';
 
 export default {
