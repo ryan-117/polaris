@@ -57,6 +57,18 @@ router.post('/delete/:id', async (req, res) => {
   });
 });
 
+// 获取当前登录的用户信息
+router.get('/getUserInfo', async (req, res) => {
+  console.log(req.cookies); // eslint-disable-line
+  const userId = req.cookies.userId;
+  const user = await User.findById(userId);
+  res.send({
+    code: 1000,
+    data: user,
+    msg: 'success'
+  });
+});
+
 // 用户详情
 router.get('/:id', async (req, res) => {
   const user = await User.findById(req.params.id);
@@ -109,7 +121,7 @@ router.post('/login', async (req, res) => {
         phone: userInfo.phone,
         avator: 'https://pic3.zhimg.com/v2-1fa488a927703f9a48c23984182a0454_is.jpg',
         token: token,
-        userid: userInfo._id
+        userId: userInfo._id
       };
       res.json({
         code: 1000,

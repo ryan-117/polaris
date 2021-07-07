@@ -21,13 +21,18 @@
     <el-container>
       <el-header class="header">
         <el-dropdown>
-          <em class="el-icon-setting edit" />
+          <div class="drop">
+            <em class="el-icon-setting edit" />
+            <span class="nickname">{{ userName }}</span>
+            <img class="my-avatar" :src="avatar" alt="用户头像" />
+          </div>
           <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item @click.native="editUser">
+              我的资料
+            </el-dropdown-item>
             <el-dropdown-item @click.native="exit">退出登录</el-dropdown-item>
-            <el-dropdown-item>我的资料</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <span>{{ userName }}</span>
       </el-header>
       <el-main>
         <router-view></router-view>
@@ -37,24 +42,39 @@
 </template>
 <script>
 import { getCookie, clearAllCookie } from '@/util/utils';
+import { getUserInfo } from '@/service/api/user';
+
 export default {
   data() {
     return {
-      userName: ''
+      userName: '',
+      avatar: ''
     };
   },
   created() {
-    this.userName = getCookie('userName');
+    this.getMyInfo();
   },
   methods: {
     exit() {
       clearAllCookie();
       this.$router.replace({ name: 'login' });
+    },
+    async getMyInfo() {
+      const res = await getUserInfo();
+      if (res) {
+        const { userName, avatar } = res.data;
+        this.userName = userName;
+        this.avatar = avatar;
+      }
+    },
+    editUser() {
+      const id = getCookie('userId');
+      this.$router.push({ name: 'editUser', params: { id } });
     }
   }
 };
 </script>
-<style>
+<style lang="less" scoped>
 .header {
   background-color: #b3c0d1;
   color: #333;
@@ -72,8 +92,22 @@ export default {
   border: 1px solid #eee;
 }
 
-.edit {
-  margin-right: 15px;
+.drop {
+  height: 60px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+
+  .nickname {
+    margin: 0 8px;
+    font-weight: 700;
+  }
+
+  .my-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+  }
 }
 </style>

@@ -27,3 +27,6 @@ export const getUser = id => {
 export const deleteUser = id => {
   return axios.post(`/jl-api/user/delete/${id}`);
 };
+export const getUserInfo = () => {
+  return axios.get(`/jl-api/user/getUserInfo`);
+};
