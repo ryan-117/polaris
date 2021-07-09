@@ -36,6 +36,8 @@ export default {
 }
 .editing {
   position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
   width: 375px;
   height: 667px;
   background-color: #fff;

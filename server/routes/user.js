@@ -59,7 +59,6 @@ router.post('/delete/:id', async (req, res) => {
 
 // 获取当前登录的用户信息
 router.get('/getUserInfo', async (req, res) => {
-  console.log(req.cookies); // eslint-disable-line
   const userId = req.cookies.userId;
   const user = await User.findById(userId);
   res.send({
