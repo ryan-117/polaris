@@ -25,7 +25,7 @@ module.exports = {
     'eol-last': 2,
     'generator-star-spacing': 2,
     'max-depth': 2,
-    'max-len': [2, 160, 2],
+    'max-len': [2, 180, 2],
     'max-nested-callbacks': 2,
     'max-params': [2, 5],
     'no-mixed-operators': 0,
