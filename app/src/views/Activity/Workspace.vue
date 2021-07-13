@@ -16,18 +16,21 @@
             <div class="tab-content">
               <el-button
                 @click="addComponents({ name: 'JlButton' })"
+                size="small"
                 icon="el-icon-circle-plus-outline"
               >
                 按钮
               </el-button>
               <el-button
                 @click="addComponents({ name: 'JlImg' })"
+                size="small"
                 icon="el-icon-circle-plus-outline"
               >
                 图片
               </el-button>
               <el-button
                 @click="addComponents({ name: 'JlText' })"
+                size="small"
                 icon="el-icon-circle-plus-outline"
               >
                 文字
