@@ -15,21 +15,21 @@
           <el-tab-pane label="基础组件">
             <div class="tab-content">
               <el-button
-                @click="addComponents({ name: 'JlButton' })"
+                @click="addCom('JlButton')"
                 size="small"
                 icon="el-icon-circle-plus-outline"
               >
                 按钮
               </el-button>
               <el-button
-                @click="addComponents({ name: 'JlImg' })"
+                @click="addCom('JlImg')"
                 size="small"
                 icon="el-icon-circle-plus-outline"
               >
                 图片
               </el-button>
               <el-button
-                @click="addComponents({ name: 'JlText' })"
+                @click="addCom('JlText')"
                 size="small"
                 icon="el-icon-circle-plus-outline"
               >
@@ -89,6 +89,9 @@ export default {
   },
   methods: {
     ...mapMutations(['addComponents', 'initPage']),
+    addCom(c) {
+      this.addComponents({ name: c });
+    },
     async saveActInfo() {
       const { name, description } = this.actInfo;
       const params = {
