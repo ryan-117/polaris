@@ -55,8 +55,6 @@ class JlText {
     this.text = '这是一段文字';
     this.style = {
       lineHeight: 24,
-      top: 180,
-      left: 160,
       fontSize: 18,
       fontWeight: 400,
       color: '#333',
