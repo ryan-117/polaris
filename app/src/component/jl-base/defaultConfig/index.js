@@ -18,8 +18,6 @@ class JlButton {
     this.style = {
       width: 100,
       height: 40,
-      top: 20,
-      left: 80,
       color: '#333333',
       backgroundColor: '#ffffff',
       borderRadius: 20,
@@ -40,8 +38,6 @@ class JlImg {
     this.style = {
       width: 200,
       height: 100,
-      top: 40,
-      left: 160,
       borderRadius: 4,
       borderWidth: 0,
       backgroundColor: '#ffffff',
@@ -58,8 +54,6 @@ class JlText {
     this.editor = 'TextEditor';
     this.text = '这是一段文字';
     this.style = {
-      width: 200,
-      height: 50,
       lineHeight: 24,
       top: 180,
       left: 160,
