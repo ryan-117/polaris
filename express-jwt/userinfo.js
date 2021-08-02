@@ -1,10 +1,9 @@
 // 获取用户信息接口
-var response = require('./response');
-var express = require('express');
-var route = express.Router();
-var authtoken = require('./authtoken');
+const express = require('express');
+const route = express.Router();
+const authToken = require('./authToken');
 
-route.post('/getUserInfo', authtoken, function (req, res) {
+route.post('/getUserInfo', authToken, function (req, res) {
   res.send(req.decoded);
 });
 
