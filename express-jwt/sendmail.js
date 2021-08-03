@@ -1,6 +1,6 @@
 // 发送邮件
-var vconfig = require('./config');
-var config = vconfig.mail;
+const vconfig = require('./config');
+const config = vconfig.mail;
 
 const nodemailer = require('nodemailer');
 // create reusable transporter object using the default SMTP transport
