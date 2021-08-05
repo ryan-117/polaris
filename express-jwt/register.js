@@ -1,14 +1,14 @@
 // 注册接口
-var response = require('./response');
-var model = require('./model');
-var User = model.user;
-var express = require('express');
-var route = express.Router();
-var common = require('./common');
+const response = require('./response');
+const model = require('./model');
+const User = model.user;
+const express = require('express');
+const route = express.Router();
+const common = require('./common');
 
 route.post('/register', (req, res) => {
-  var username = req.body.username;
-  var password = req.body.password;
+  const username = req.body.username;
+  const password = req.body.password;
 
   //是否合法的参数
   if (username == null || username.trim() == '' || password == null || password.trim() == '') {
@@ -17,7 +17,7 @@ route.post('/register', (req, res) => {
   }
 
   //是否存在用户
-  User.findOne({ username: username })
+  User.findOne({ username })
     .then(data => {
       console.log(data);
       return new Promise((resolve, reject) => {
@@ -32,26 +32,20 @@ route.post('/register', (req, res) => {
     .then(() => {
       //存储
       return new User({
-        username: username,
+        username,
         password: common.md5(password)
       }).save();
     })
     .then(data => {
-      console.log(data);
       if (data) {
-        //返回
         res.send(response.succ('注册成功'));
         return;
       }
 
-      //返回
       res.send(response.err('注册失败'));
     })
     .catch(err => {
-      //异常
-      if (err) {
-        console.log(err);
-      }
+      console.log(err);
     });
 });
 
