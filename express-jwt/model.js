@@ -1,8 +1,8 @@
 // 数据库集合定义
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var User = mongoose.model(
+const User = mongoose.model(
   'User',
   new Schema({
     username: String,

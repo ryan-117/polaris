@@ -1,8 +1,8 @@
 // 数据库连接
-var config = require('./config');
-var mongoose = require('mongoose');
+const config = require('./config');
+const mongoose = require('mongoose');
 
 mongoose.connect(config.mongolink, { autoIndex: false, useNewUrlParser: true });
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, '数据库connection error:'));
