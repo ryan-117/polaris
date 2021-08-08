@@ -1,6 +1,6 @@
 // 配置文件：全局变量、jwt秘钥等
-var isthinkpad=true
-var mail = {
+CONST isthinkpad=true
+CONST mail = {
     host: 'smtp.163.com',
     user: 'xxxxx@163.com', // generated ethereal user
     pass: 'xxxx', // generated ethereal password
