@@ -1,5 +1,5 @@
 //错误状态： 请求方式错误、路径错误、系统错误等
-var response = require('./response')
+const response = require('./response')
 
 module.exports = function (app) {
   app.use(function (req, res, next) {

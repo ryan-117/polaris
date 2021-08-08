@@ -1,14 +1,14 @@
 // 登录接口
-var response = require('./response');
-var model = require('./model');
-var User = model.user;
-var express = require('express');
-var route = express.Router();
-var common = require('./common');
+const response = require('./response');
+const model = require('./model');
+const User = model.user;
+const express = require('express');
+const route = express.Router();
+const common = require('./common');
 
 route.post('/login', function (req, res) {
-  var username = req.body.username;
-  var password = req.body.password;
+  const username = req.body.username;
+  const password = req.body.password;
 
   //是否合法的参数
   if (username == null || username.trim() == '' || password == null || password.trim() == '') {
@@ -16,7 +16,7 @@ route.post('/login', function (req, res) {
     return;
   }
 
-  User.findOne({ username: username, password: common.md5(password) })
+  User.findOne({ username, password: common.md5(password) })
     .then(data => {
       return new Promise((resolve, reject) => {
         if (data) {
