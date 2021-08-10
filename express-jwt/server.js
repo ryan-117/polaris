@@ -1,9 +1,9 @@
 //入口文件
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
 //body-parser
-var bodyParser = require('body-parser');
+let bodyParser = require('body-parser');
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
@@ -13,11 +13,11 @@ app.use(bodyParser.json());
 require('./mongoconn');
 
 //api
-var api = require('./api');
+let api = require('./api');
 api(app);
 
 //error
-var err = require('./error');
+let err = require('./error');
 err(app);
 
 //listen
