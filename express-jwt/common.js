@@ -18,14 +18,7 @@ const verifytoken = token =>
 
 const cmd5 = str => md5(str + config.md5secret);
 
-const ismail = mail => {
-  const filter = /^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,3}$/;
-  if (filter.test(mail)) {
-    return true;
-  } else {
-    return false;
-  }
-};
+const ismail = mail => /^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,3}$/.test(mail);
 
 const isphone = phone => {
   return String(phone).length === 11;

@@ -7,10 +7,4 @@ function testAwait() {
   });
 }
 
-async function helloAsync() {
-  return await Promise.resolve('dddd');
-}
-
-helloAsync().then(data => {
-  console.log(data);
-});
+Promise.resolve('dddd').then(console.log);
