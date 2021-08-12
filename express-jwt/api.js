@@ -1,7 +1,5 @@
 // 定义路由通用路径
-const response = require('./response');
 const model = require('./model');
-const User = model.user;
 const register = require('./register');
 const login = require('./login');
 const userinfo = require('./userinfo');
