@@ -1,20 +1,20 @@
-import axios from '@/util/axios';
+import apiService from '@/util/apiService';
 
 export const login = params => {
-  return axios.post('/jl-api/user/login', params);
+  return apiService.post('/jl-api/user/login', params);
 };
 export const getUserAll = () => {
-  return axios.get('/jl-api/user/all');
+  return apiService.get('/jl-api/user/all');
 };
 export const addUser = params => {
-  return axios.post('/jl-api/user/add', params);
+  return apiService.post('/jl-api/user/add', params);
 };
 export const register = params => {
-  return axios.post('/jl-api/user/add', params);
+  return apiService.post('/jl-api/user/add', params);
 };
 export const editUser = params => {
   const { userName, phone, password, avatar } = params;
-  return axios.post(`/jl-api/user/edit/${params.id}`, {
+  return apiService.post(`/jl-api/user/edit/${params.id}`, {
     userName,
     phone,
     password,
@@ -22,11 +22,11 @@ export const editUser = params => {
   });
 };
 export const getUser = id => {
-  return axios.get(`/jl-api/user/${id}`);
+  return apiService.get(`/jl-api/user/${id}`);
 };
 export const deleteUser = id => {
-  return axios.post(`/jl-api/user/delete/${id}`);
+  return apiService.post(`/jl-api/user/delete/${id}`);
 };
 export const getUserInfo = () => {
-  return axios.get(`/jl-api/user/getUserInfo`);
+  return apiService.get(`/jl-api/user/getUserInfo`);
 };
