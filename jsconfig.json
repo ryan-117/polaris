@@ -6,12 +6,12 @@
     "baseUrl": "./",
     "paths": {
       "@/*": [
-        "app/src/*"
+        "packages/app/src/*"
       ]
     },
     "jsx": "preserve"
   },
   "include": [
-    "app/src"
+    "packages/app/src"
   ]
 }
