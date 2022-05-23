@@ -1,4 +1,4 @@
-## polaris - 北极星
+## polaris
 
 # 开发相关：app
 ## 安装依赖
