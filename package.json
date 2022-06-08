@@ -6,7 +6,8 @@
   },
   "workspaces": [
     "packages/app",
-    "packages/server"
+    "packages/server",
+    "packages/ry"
   ],
   "version": "0.0.0"
 }
