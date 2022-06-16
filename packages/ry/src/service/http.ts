@@ -77,10 +77,10 @@ const service = axios.create({
 // 请求拦截器
 service.interceptors.request.use((config: AxiosRequestConfig) => {
   //获取token，并将其添加至请求头中
-  let token = localStorage.getItem('token')
-  if(token){
-    config.headers.Authorization = `${token}`;
-  }
+  // let token = localStorage.getItem('token')
+  // if(token){
+  //   config.headers.Authorization = `${token}`;
+  // }
   return config
 }, (error) => {
   // 错误抛到业务代码
@@ -90,20 +90,7 @@ service.interceptors.request.use((config: AxiosRequestConfig) => {
 })
 
 // 响应拦截器
-service.interceptors.response.use((response: AxiosResponse) => {
-  const status = response.status
-  let msg = ''
-  if (status < 200 || status >= 300) {
-    // 处理http错误，抛到业务代码
-    msg = showStatus(status)
-    if (typeof response.data === 'string') {
-      response.data = { msg }
-    } else {
-      response.data.msg = msg
-    }
-  }
-  return response
-}, (error) => {
+service.interceptors.response.use((response: AxiosResponse) => response.data, (error) => {
   if (axios.isCancel(error)) {
     console.log('repeated request: ' + error.message)
   } else {
