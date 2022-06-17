@@ -2,7 +2,7 @@
 import { reactive, ref } from 'vue'
 // import type { Ref } from 'vue'
 import { searchContent } from './api'
-import SearchList from './List'
+import SearchList from './List.tsx'
 
 enum SearchType {
   fiction = 'fiction',
@@ -45,7 +45,7 @@ const searchTypeList = reactive<SearchTypeItem[]>([
 ])
 
 const search = reactive<{type: string, keyword: string}>({
-  type: SearchType.fiction,
+  type: SearchType.video,
   keyword: ''
 })
 
@@ -56,35 +56,47 @@ const handleSearch = async (): Promise<void> => {
   const res: IAxiosResponse = await searchContent(type, keyword)
   if (res.code === 0) {
     list.value = res.data
-    console.log(list.value);
   }
 }
 handleSearch()
 </script>
 
 <template>
-  <div class="search">
-    <div class="left">
-      <el-select v-model="search.type" placeholder="请选择搜索类型">
-        <el-option v-for="item in searchTypeList" :label="item.label" :value="item.key" :key="item.key"></el-option>
-      </el-select>
-      <el-input v-model="search.keyword" placeholder="请输入你要搜索的内容"></el-input>
+  <div class="search-container">
+    <div class="search">
+      <div class="left">
+        <el-select size="large" v-model="search.type" placeholder="请选择搜索类型">
+          <el-option v-for="item in searchTypeList" :label="item.label" :value="item.key" :key="item.key"></el-option>
+        </el-select>
+        <el-input size="large" v-model="search.keyword" placeholder="请输入你要搜索的内容"></el-input>
+      </div>
+      <el-button size="large" type="primary" @click="handleSearch">查询</el-button>
     </div>
-    <el-button type="primary" @click="handleSearch">查询</el-button>
   </div>
-  <SearchList :ll="list.length" v-if="list.length" :list="list" />
+  <SearchList v-if="list.length" :list="list" />
+  <el-empty v-else description="没有搜到任何内容╮(╯▽╰)╭"></el-empty>
 </template>
 <style lang="less" scoped>
-.search {
-  display: flex;
-  justify-content: space-between;
-  width: 500px;
+.search-container {
   margin: 0 auto;
+  width: 800px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  background: url('@/assets/background.jpeg') center center no-repeat;
+  background-size: cover;
 
-  .left {
+  .search {
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    width: 400px;
+    width: 600px;
+
+    .left {
+      display: flex;
+      justify-content: space-between;
+      width: 400px;
+    }
   }
 }
 </style>

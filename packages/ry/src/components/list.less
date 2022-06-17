@@ -1,0 +1,57 @@
+.list {
+  width: 800px;
+  margin: 40px auto;
+
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(228, 230, 235, 0.5);
+
+    &:last-child {
+      border: none;
+    }
+  
+    img {
+      display: block;
+      width: 120px;
+      height: 160px;
+      border-radius: 8px;
+      margin-right: 12px;
+    }
+  
+    .right {
+      text-align: left;
+      flex: 1;
+
+      .title {
+        font-size: 20px;
+        color: #1d2129;
+        font-weight: 700;
+      }
+
+      .tags, .actor {
+        margin-top: 8px;
+        font-size: 14px;
+
+        & > span {
+          margin-right: 4px;
+          margin-bottom: 8px;
+        }
+      }
+
+      .desc {
+        margin-top: 8px;
+        color: #86909c;
+        font-size: 13px;
+        line-height: 22px;
+        overflow:hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+    }
+  }
+}
