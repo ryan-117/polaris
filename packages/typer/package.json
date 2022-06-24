@@ -1,12 +1,14 @@
 {
   "name": "typer",
   "version": "0.0.1",
-  "description": "",
+  "description": "A JavaScript Typing Animation Library",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite build -w",
+    "serve": "vite",
+    "build": "rm -rf dist && vite build"
   },
   "keywords": [],
   "author": "117",
