@@ -1,7 +1,6 @@
 const path = require("path");
 const typescript = require("@rollup/plugin-typescript");
 const { defineConfig } = require("vite");
-const packageObj = require("./package.json");
 
 const entry = path.resolve(__dirname, "src/index.ts");
 
@@ -22,8 +21,8 @@ module.exports = defineConfig({
     lib: {
       entry,
       name: "Typer",
-      formats: ["umd", "cjs", "es"],
-      // fileName: () => {},
+      // formats: ["umd", "cjs", "es"],
+      // fileName: format => `typer.${format}.js`,
     },
     rollupOptions: {
       input: entry,
@@ -34,5 +33,6 @@ module.exports = defineConfig({
   },
   server: {
     open: true,
+    port: 3000
   },
 });

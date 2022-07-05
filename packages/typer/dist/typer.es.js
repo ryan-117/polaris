@@ -7,7 +7,7 @@ var Typer = function() {
     this.options = Object.assign({}, defaultOptions, opt);
   }
   Typer2.prototype.init = function() {
-    console.log("typer is inited: 123", this.options);
+    console.log("typer is inited: 193", this.options);
   };
   return Typer2;
 }();

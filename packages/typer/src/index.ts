@@ -2,16 +2,14 @@ interface IOptions {
   el: string | HTMLElement,
   test?: number
 }
+const defaultOptions: IOptions = {
+  el: '#typer'
+}
 export default class Typer {
   private options: IOptions
 
-  constructor(opt: IOptions) {
-    // this.options = options
-    opt.test = 12
-    const defaultOptions: IOptions = {
-      el: '#typer'
-    }
-
+  constructor(opt: IOptions = defaultOptions) {
+    this.options = opt
     this.options = Object.assign({}, defaultOptions, opt)
   }
 
