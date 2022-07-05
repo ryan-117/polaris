@@ -1,4 +1,3 @@
-import { init } from './in'
 interface IOptions {
   el: string | HTMLElement,
   test?: number
@@ -13,7 +12,6 @@ export default class Typer {
       el: '#typer'
     }
 
-    init()
     this.options = Object.assign({}, defaultOptions, opt)
   }
 
