@@ -1,0 +1,25 @@
+{
+  "name": "typer",
+  "version": "0.0.1",
+  "description": "A JavaScript Typing Animation Library",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "vite build -w",
+    "serve": "vite",
+    "build": "rm -rf dist && vite build"
+  },
+  "keywords": [],
+  "author": "117",
+  "license": "ISC",
+  "devDependencies": {
+    "@microsoft/api-extractor": "^7.25.2",
+    "@rollup/plugin-typescript": "^8.3.3",
+    "core-js": "^3.23.2",
+    "eslint": "^8.18.0",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4",
+    "vite": "^2.9.12"
+  }
+}

@@ -1,0 +1,2 @@
+(function(t,e){typeof exports=="object"&&typeof module!="undefined"?module.exports=e():typeof define=="function"&&define.amd?define(e):(t=typeof globalThis!="undefined"?globalThis:t||self,t.Typer=e())})(this,function(){"use strict";var t=function(){function e(n){n.test=12;var i={el:"#typer"};this.options=Object.assign({},i,n)}return e.prototype.init=function(){console.log("typer is inited: 123",this.options)},e}();return t});
+//# sourceMappingURL=typer.umd.js.map
