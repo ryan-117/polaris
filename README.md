@@ -3,17 +3,17 @@
 # 开发相关：app
 ## 安装依赖
 ```
-yarn / npm install
+yarn
 ```
 ## 开发模式
 
 ```
-yarn dev / npm run dev / npm run serve
+yarn dev
 ```
 ## 生产模式
 
 ```
-yarn build / npm run build
+yarn build
 ```
 
 # 开发相关：server
@@ -24,7 +24,7 @@ yarn / npm install
 ## 后台启动
 ```
 yarn serve / node index.js
-nodemon index.js  // 后台热更新启动
+nodemon index.js  // 后台热更新启动，需要安装nodemon
 ```
 > 端口为localhost:3001
 
